@@ -5,7 +5,7 @@
 
 #include "TicTacToe.h"
 
-Tic_Tac_Toe::Tic_Tac_Toe() {
+TicTacToe::TicTacToe() {
 	// for loop to make each row  playable spot a white space
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
 		// for loop to make each column  playable spot a white space
@@ -18,9 +18,10 @@ Tic_Tac_Toe::Tic_Tac_Toe() {
 	mNameOfPlayer1 = "";
 	mNameOfPlayer2 = "";
 	mWhoWon = 'x';
+	mToken = 'x';
 }
 
-Tic_Tac_Toe::~Tic_Tac_Toe() {
+TicTacToe::~TicTacToe() {
 	// TODO Auto-generated destructor stub
 }
 
@@ -36,27 +37,27 @@ Tic_Tac_Toe::~Tic_Tac_Toe() {
  * POST-CONDITIONS:
  *		none
  *************************************************************************/
-void Tic_Tac_Toe::OutputInstruct() { //couts the instructions for the game
+void TicTacToe::OutputInstruct() { //couts the instructions for the game
 	std::cout << "Welcome Champions! You have fought bravely and your\n"
-			"strength has gotten you thus far! Can your wisdom, your\n"
-			"logic get you farther to become the alone standing\n"
-			"champion! Here, NOW in this final battle shall you\n"
-			"use all you possess to out do your opponent!\n"
-			"Now PICK YOUR SIDE!\n"
-			"Shall thou pick thou X? \n"
-			"The X clan comes from an ancient skill warriors, bend on\n"
-			"war. Their a strong foe, waiting to attack with their \n"
-			"X slice, no foe has ever be stuck and lived"
-			"Or do thou pick the O? \n"
-			"The Nobal Os, from the kingdom in the deep mountains. \n"
-			"Their know for their goal to keep peace in all the lands \n"
-			"the Circle table for all kings sit equal among each other \n"
-			"The game is simple, you must get three of your symbol in \n "
-			"a line or diagonal. The First to do this, shall win. \n"
-			"To enter your symbol you must put the spot numbers with\n"
-			"a space in between, for example ( middle spot is : 2 2 )\n"
-			"WIN and continue your walk has CHAMPION OF THE CAMPIONS\n"
-			"                  Do you Dare?";
+			     "strength has gotten you thus far! Can your wisdom, your\n"
+				 "logic get you farther to become the alone standing\n"
+				 "champion! Here, NOW in this final battle shall you\n"
+				 "use all you possess to out do your opponent!\n"
+				 "Now PICK YOUR SIDE!\n"
+				 "Shall thou pick thou X? \n"
+				 "The X clan comes from an ancient skill warriors, bend on\n"
+				 "war. Their a strong foe, waiting to attack with their \n"
+				 "X slice, no foe has ever be stuck and lived"
+				 "Or do thou pick the O? \n"
+				 "The Nobal Os, from the kingdom in the deep mountains. \n"
+				 "Their know for their goal to keep peace in all the lands \n"
+				 "the Circle table for all kings sit equal among each other \n"
+				 "The game is simple, you must get three of your symbol in \n "
+				 "a line or diagonal. The First to do this, shall win. \n"
+				 "To enter your symbol you must put the spot numbers with\n"
+				 "a space in between, for example ( middle spot is : 2 2 )\n"
+				 "WIN and continue your walk has CHAMPION OF THE CAMPIONS\n"
+				 "                  Do you Dare?";
 }
 
 /**************************************************************************
@@ -72,7 +73,7 @@ void Tic_Tac_Toe::OutputInstruct() { //couts the instructions for the game
  * POST-CONDITIONS:
  *		RETURNS: the current plays on the board
  *************************************************************************/
-void Tic_Tac_Toe::DisplayBoard() { // tic tac toe Board - IN
+void TicTacToe::DisplayBoard() { // tic tac toe Board - IN
 	int row; //row is declared
 	int col; //col is declared
 	//clears the screen before the new board goes out
@@ -83,8 +84,8 @@ void Tic_Tac_Toe::DisplayBoard() { // tic tac toe Board - IN
 	std::cout << std::setw(10) << "1" << std::setw(8) << "2" << std::setw(9) << "3\n";
 	//first FOR loop creating the horizontal lines for the grid of the game
 	for (row = 0; row < 3; row++) {
-		std::cout << std::setw(7) << "[" << row+1 << "][1] | " << "[" << row+1;
-		std::cout << "][2] | " << "[" << row+1 << "][3]" << std::endl;
+		std::cout << std::setw(7)  << "[" << row + 1      << "][1] | " << "[" << row+1;
+		std::cout << "][2] | "     << "[" << row + 1      << "][3]" << std::endl;
 		std::cout << std::setw(14) << "|" << std::setw(9) << "|" << std::endl;
 		//FOR loop that prints the Lines for the grid for the game
 		for (col = 0; col < 3; col++) {
@@ -128,7 +129,7 @@ void Tic_Tac_Toe::DisplayBoard() { // tic tac toe Board - IN
  * 		There is none, it just makes the spaces int he array white spaces
  *
  *************************************************************************/
-void Tic_Tac_Toe::InitBoard() { // tic tac toe Board - IN
+void TicTacToe::InitBoard() { // tic tac toe Board - IN
 	// for loop to make each row  playable spot a white space
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
 		// for loop to make each column  playable spot a white space
@@ -153,10 +154,10 @@ void Tic_Tac_Toe::InitBoard() { // tic tac toe Board - IN
  * POST-CONDITIONS:
  *		outputs the current winner with their name!
  *************************************************************************/
-void Tic_Tac_Toe::OutputWinner () {	//players O's name - OUT
+void TicTacToe::OutputWinner () {
 	// takes in whoWon and outputs the correct name to who won
 	switch(mWhoWon) {
-		case 'X' : std::cout << mNameOfPlayer1
+		case 'X' : std::cout << mNameOfPlayer1 // XXX change this to the Player Class
 						<< " HAS WON, his wisdom, his logic, his "
 						   "unwavering determination has out done "
 						   "the noble O's and now he shall go down "
@@ -195,7 +196,7 @@ void Tic_Tac_Toe::OutputWinner () {	//players O's name - OUT
  * 		whoWin : sends back who won if their is a winner or just a tie
  *
  *************************************************************************/
-char Tic_Tac_Toe::CheckWin() { // IN - tic tac toe Board
+char TicTacToe::CheckWin() {
 	char winnerWinner; 		 //sets winnerWinner to a Tie
 	int  index;				 //declares of index
 
@@ -241,4 +242,27 @@ char Tic_Tac_Toe::CheckWin() { // IN - tic tac toe Board
 	}
 	//returns the winner or the C for no win or tie
 	return winnerWinner;
+}
+
+/**************************************************************************
+ *
+ *		 FUNCTION SwitchToken
+ * _____________________________________________________________________
+ *		Takes in the current token and then switches it to the other
+ *		player. If an X comes in an O will go out
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ *		token : the current player
+ * POST-CONDITIONS:
+ *		token : switches to the other player
+ *************************************************************************/
+
+char TicTacToe::SwitchToken () {
+	//If statement that will take in token and switch it to x or O's
+	if(mToken == 'X') {
+		mToken = 'O';
+	} else {
+		mToken ='X';
+	}
+	return mToken;
 }

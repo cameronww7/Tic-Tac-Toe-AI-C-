@@ -12,10 +12,10 @@
 #include <stdlib.h>
 using namespace std;
 
-class Tic_Tac_Toe {
+class TicTacToe {
 public:
-	Tic_Tac_Toe();
-	virtual ~Tic_Tac_Toe();
+	TicTacToe();
+	virtual ~TicTacToe();
 
 	void OutputInstruct(); // displays the instructions for the game
 	void DisplayBoard(); // tic tac toe Board - IN
@@ -23,6 +23,7 @@ public:
 	void OutputWinner(); // players O's name - OUT
 
 	char CheckWin(); // tic tac toe Board - IN
+	char SwitchToken ();
 
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
@@ -30,6 +31,7 @@ private:
 
 	char   mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
 	char   mWhoWon;  // Winning Piece - IN
+	char   mToken;
 
 	string mNameOfPlayer1;  // name of player 1 - IN
 	string mNameOfPlayer2;  // name of player 2 - IN
