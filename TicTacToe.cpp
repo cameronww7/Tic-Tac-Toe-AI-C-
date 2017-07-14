@@ -1,0 +1,247 @@
+/**************************************************************************
+ * AUTHOR  : Cameron W
+ * PROJECT : Tic Tac Toe + AI In C++
+ *************************************************************************/
+
+#include "TicTacToe.h"
+
+Tic_Tac_Toe::Tic_Tac_Toe() {
+	// for loop to make each row  playable spot a white space
+	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
+		// for loop to make each column  playable spot a white space
+		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
+			// assigns each spot a white space
+			mBoard[rowCnt][colCnt]= ' ';
+		}
+	}
+
+	mNameOfPlayer1 = "";
+	mNameOfPlayer2 = "";
+	mWhoWon = 'x';
+}
+
+Tic_Tac_Toe::~Tic_Tac_Toe() {
+	// TODO Auto-generated destructor stub
+}
+
+/**************************************************************************
+ *
+ *		 FUNCTION OutPutInstruct
+ * _____________________________________________________________________
+ *		This function will output to the players the rules and how
+ *		to play this version of tic tac toe
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ *		none
+ * POST-CONDITIONS:
+ *		none
+ *************************************************************************/
+void Tic_Tac_Toe::OutputInstruct() { //couts the instructions for the game
+	cout << "Welcome Champions! You have fought bravely and your\n"
+			"strength has gotten you thus far! Can your wisdom, your\n"
+			"logic get you farther to become the alone standing\n"
+			"champion! Here, NOW in this final battle shall you\n"
+			"use all you possess to out do your opponent!\n"
+			"Now PICK YOUR SIDE!\n"
+			"Shall thee pick thee X? \n"
+			"The X clan comes from an ancient skill warriors, bend on\n"
+			"war. Their a strong foe, waiting to attack with their \n"
+			"X slice, no foe has ever be stuck and lived"
+			"Or do thee pick the O? \n"
+			"The Nobal Os, from the kingdom  in the deep mountains. \n"
+			"Their know for their goal to keep peace in all the lands \n"
+			"the Circle table for all kings sit equal among each other \n"
+			"The game is simple, you must get three of your symbol in \n "
+			"a line or diagonal. The First to do this, shall win. \n"
+			"To enter your symbol you must put the spot numbers with\n"
+			"a space in between, for example ( middle spot is : 2 2 )\n"
+			"WIN and continue your walk has CHAMPION OF THE CAMPIONS\n"
+			"                  Do you Dare?";
+	}
+
+/**************************************************************************
+ *
+ *		 FUNCTION DisplayBoard
+ * _____________________________________________________________________
+ *		The function displays the current board. Meaning if there are
+ *		any plays it will display them through the array
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ * 		Board[][] : the multi array of the board
+ *
+ * POST-CONDITIONS:
+ *		RETURNS: the current plays on the board
+ *************************************************************************/
+void Tic_Tac_Toe::DisplayBoard() { // tic tac toe Board - IN
+	int row; //row is declared
+	int col; //col is declared
+	//clears the screen before the new board goes out
+	system("cls");
+	//as a space so it looks better!
+	cout << endl;
+	//prints the 1 2 3 for the top and bottom of the tic tac toe
+	cout << setw(10) << "1" << setw(8) << "2" << setw(9) << "3\n";
+	//first FOR loop creating the horizontal lines for the grid of the game
+	for (row = 0; row < 3; row++) {
+		cout << setw(7) << "[" << row+1 << "][1] | " << "[" << row+1;
+		cout << "][2] | " << "[" << row+1 << "][3]" << endl;
+		cout << setw(14) << "|" << setw(9) << "|" << endl;
+		//FOR loop that prints the Lines for the grid for the game
+		for (col = 0; col < 3; col++) {
+			switch(col) {
+				case 0: cout << row + 1 << setw(9) << mBoard[row][col];
+						cout << setw(4) << "|";
+						break;
+
+				case 1: cout << setw(4) << mBoard[row][col];
+						cout << setw(5) << "|";
+						break;
+
+				case 2: cout << setw(4) << mBoard[row][col] << endl;
+						break;
+
+				default: cout << "ERROR!\n\n";
+						break;
+			}
+		}
+
+		cout << setw(14) << "|" << setw(10) << "|\n";
+		//if statement to print the lines between to create rows
+		if (row != 2) {
+			cout << setw(32) << "-----------------------\n";
+		}
+	}
+	cout << endl << endl;
+}
+
+/**************************************************************************
+ *
+ *		 FUNCTION InitBoard
+ * _____________________________________________________________________
+ *		This function will initialize each of the 9 spaces on the board
+ *		as a white space for future X's and O's
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ * 		Board[][] : the multi array of the board
+ *
+ * POST-CONDITIONS:
+ * 		There is none, it just makes the spaces int he array white spaces
+ *
+ *************************************************************************/
+void Tic_Tac_Toe::InitBoard() { // tic tac toe Board - IN
+	int rowCnt;	// the row counter
+	int colCnt;	// the column counter
+
+	// for loop to make each row  playable spot a white space
+	for (rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
+		// for loop to make each column  playable spot a white space
+		for (colCnt = 0; colCnt < NUM_COLS; colCnt++) {
+			// assigns each spot a white space
+			mBoard[rowCnt][colCnt]= ' ';
+		}
+	}
+}
+
+/**************************************************************************
+ *
+ *		 FUNCTION OutputWinner
+ * _____________________________________________________________________
+ *		This function will take in the char (either X or O) and output
+ *		the user who won their name and say they have won the game.
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ *		whoWon : must be either an X or O
+ *		player1   : player 1's name
+ *		player2   : player 2's name
+ * POST-CONDITIONS:
+ *		outputs the current winner with their name!
+ *************************************************************************/
+void Tic_Tac_Toe::OutputWinner () {	//players O's name - OUT
+	// takes in whoWon and outputs the correct name to who won
+	switch(mWhoWon) {
+		case 'X' : cout << mNameOfPlayer1
+						<< " HAS WON, his wisdom, his logic, his "
+						   "unwavering determination has out done "
+						   "the noble O's and now he shall go down "
+						   "as history. May his name Last through "
+						   "out the ages";
+					break;
+		case 'O' : cout << mNameOfPlayer2
+					 	<< " Has risen to Champion, his noble "
+						   "quest has given him the strength "
+						   "nay the will power to over come "
+						   "each and every battle to become"
+						   "CHAMPION OF THE CHAMPIONS ";
+					break;
+		case 'C' : 	cout << "Your Game has ended in a bloodly tie, truely"
+							" both you warriors are the best from each"
+							"land. Now rest up and do you dare to fight again"
+							"? your dou flee?";
+					cout << endl;
+					break;
+	}
+
+}
+
+/**************************************************************************
+ *
+ *		 FUNCTION CheckWin
+ * _____________________________________________________________________
+ *		This function will take in the current play's and compare them to
+ *		the other places to find if there is a win, either up and down
+ *		or side to side, or diagonal
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ *		Board[][] : the multi array of the board
+ *
+ * POST-CONDITIONS:
+ * 		whoWin : sends back who won if their is a winner or just a tie
+ *
+ *************************************************************************/
+char Tic_Tac_Toe::CheckWin() { // IN - tic tac toe Board
+	char winnerWinner; 		 //sets winnerWinner to a Tie
+	int  index;				 //declares of index
+
+	// INITIALIZATIONS
+	index = 0;				 // sets index to zero
+	winnerWinner = 'C';
+
+	//enter the do while loop checking if their is a win and will exit
+	// if there is either a win or index is three
+	do {
+		//checks if there is a horizontal win
+		if(mBoard[index][0] != ' ' &&
+		   mBoard[index][0] == mBoard[index][1] &&
+		   mBoard[index][0] == mBoard[index][2]) {
+			winnerWinner = mBoard[index][0];
+		}
+
+		//checks if there is a vertical win
+		if(mBoard[0][index] != ' ' &&
+		   mBoard[0][index] == mBoard[1][index] &&
+		   mBoard[0][index] == mBoard[2][index]) {
+			winnerWinner = mBoard[0][index];
+		}
+
+		//increase index so it will check new horizontal and vertical wins
+		index = index + 1;
+	} while(winnerWinner == 'C' && index < 3);
+
+	// checks if there is a diagonal win from left to right
+	if(winnerWinner == 'C') {
+		if(mBoard[0][0] != ' ' &&
+		   mBoard[0][0] == mBoard[1][1] &&
+		   mBoard[0][0] == mBoard[2][2]) {
+			winnerWinner = mBoard[0][0];
+		}
+
+		// checks if there is a diagonal win from right to left
+		if(mBoard[0][2] != ' ' &&
+		   mBoard[0][2] == mBoard[1][1] &&
+		   mBoard[0][2] == mBoard[2][0]) {
+			winnerWinner = mBoard[0][2];
+		}
+	}
+	//returns the winner or the C for no win or tie
+	return winnerWinner;
+}
