@@ -13,6 +13,7 @@
  		 row      : the row the current player wants
  		 col      : the column the current player wants
  		 contiune : user wants to play or not play
- 		Outputs:
+ 	
+ 	 Outputs
  		 n/a
- 	_____________________________________________________________________
+  _____________________________________________________________________
