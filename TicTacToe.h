@@ -25,13 +25,14 @@ public:
 	char CheckWin(); // tic tac toe Board - IN
 
 private:
-	const int NUM_ROWS = 3; // the size of the columns in the array
-	const int NUM_COLS = 3; // the size of the rows in the array
+	static const int NUM_ROWS = 3; // the size of the columns in the array
+	static const int NUM_COLS = 3; // the size of the rows in the array
 
 	char   mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
+	char   mWhoWon;  // Winning Piece - IN
+
 	string mNameOfPlayer1;  // name of player 1 - IN
 	string mNameOfPlayer2;  // name of player 2 - IN
-	char   mWhoWon;  // Winning Piece - IN
 
 };
 

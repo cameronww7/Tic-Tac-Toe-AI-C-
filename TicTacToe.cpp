@@ -37,18 +37,18 @@ Tic_Tac_Toe::~Tic_Tac_Toe() {
  *		none
  *************************************************************************/
 void Tic_Tac_Toe::OutputInstruct() { //couts the instructions for the game
-	cout << "Welcome Champions! You have fought bravely and your\n"
+	std::cout << "Welcome Champions! You have fought bravely and your\n"
 			"strength has gotten you thus far! Can your wisdom, your\n"
 			"logic get you farther to become the alone standing\n"
 			"champion! Here, NOW in this final battle shall you\n"
 			"use all you possess to out do your opponent!\n"
 			"Now PICK YOUR SIDE!\n"
-			"Shall thee pick thee X? \n"
+			"Shall thou pick thou X? \n"
 			"The X clan comes from an ancient skill warriors, bend on\n"
 			"war. Their a strong foe, waiting to attack with their \n"
 			"X slice, no foe has ever be stuck and lived"
-			"Or do thee pick the O? \n"
-			"The Nobal Os, from the kingdom  in the deep mountains. \n"
+			"Or do thou pick the O? \n"
+			"The Nobal Os, from the kingdom in the deep mountains. \n"
 			"Their know for their goal to keep peace in all the lands \n"
 			"the Circle table for all kings sit equal among each other \n"
 			"The game is simple, you must get three of your symbol in \n "
@@ -57,7 +57,7 @@ void Tic_Tac_Toe::OutputInstruct() { //couts the instructions for the game
 			"a space in between, for example ( middle spot is : 2 2 )\n"
 			"WIN and continue your walk has CHAMPION OF THE CAMPIONS\n"
 			"                  Do you Dare?";
-	}
+}
 
 /**************************************************************************
  *
@@ -78,40 +78,40 @@ void Tic_Tac_Toe::DisplayBoard() { // tic tac toe Board - IN
 	//clears the screen before the new board goes out
 	system("cls");
 	//as a space so it looks better!
-	cout << endl;
+	std::cout << std::endl;
 	//prints the 1 2 3 for the top and bottom of the tic tac toe
-	cout << setw(10) << "1" << setw(8) << "2" << setw(9) << "3\n";
+	std::cout << std::setw(10) << "1" << std::setw(8) << "2" << std::setw(9) << "3\n";
 	//first FOR loop creating the horizontal lines for the grid of the game
 	for (row = 0; row < 3; row++) {
-		cout << setw(7) << "[" << row+1 << "][1] | " << "[" << row+1;
-		cout << "][2] | " << "[" << row+1 << "][3]" << endl;
-		cout << setw(14) << "|" << setw(9) << "|" << endl;
+		std::cout << std::setw(7) << "[" << row+1 << "][1] | " << "[" << row+1;
+		std::cout << "][2] | " << "[" << row+1 << "][3]" << std::endl;
+		std::cout << std::setw(14) << "|" << std::setw(9) << "|" << std::endl;
 		//FOR loop that prints the Lines for the grid for the game
 		for (col = 0; col < 3; col++) {
 			switch(col) {
-				case 0: cout << row + 1 << setw(9) << mBoard[row][col];
-						cout << setw(4) << "|";
+				case 0: std::cout << row + 1 << std::setw(9) << mBoard[row][col];
+						std::cout << std::setw(4) << "|";
 						break;
 
-				case 1: cout << setw(4) << mBoard[row][col];
-						cout << setw(5) << "|";
+				case 1: std::cout << std::setw(4) << mBoard[row][col];
+						std::cout << std::setw(5) << "|";
 						break;
 
-				case 2: cout << setw(4) << mBoard[row][col] << endl;
+				case 2: std::cout << std::setw(4) << mBoard[row][col] << std::endl;
 						break;
 
-				default: cout << "ERROR!\n\n";
+				default: std::cout << "ERROR!\n\n";
 						break;
 			}
 		}
 
-		cout << setw(14) << "|" << setw(10) << "|\n";
+		std::cout << std::setw(14) << "|" << std::setw(10) << "|\n";
 		//if statement to print the lines between to create rows
 		if (row != 2) {
-			cout << setw(32) << "-----------------------\n";
+			std::cout << setw(32) << "-----------------------\n";
 		}
 	}
-	cout << endl << endl;
+	std::cout << std::endl << std::endl;
 }
 
 /**************************************************************************
@@ -129,13 +129,10 @@ void Tic_Tac_Toe::DisplayBoard() { // tic tac toe Board - IN
  *
  *************************************************************************/
 void Tic_Tac_Toe::InitBoard() { // tic tac toe Board - IN
-	int rowCnt;	// the row counter
-	int colCnt;	// the column counter
-
 	// for loop to make each row  playable spot a white space
-	for (rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
+	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
 		// for loop to make each column  playable spot a white space
-		for (colCnt = 0; colCnt < NUM_COLS; colCnt++) {
+		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
 			// assigns each spot a white space
 			mBoard[rowCnt][colCnt]= ' ';
 		}
@@ -159,25 +156,25 @@ void Tic_Tac_Toe::InitBoard() { // tic tac toe Board - IN
 void Tic_Tac_Toe::OutputWinner () {	//players O's name - OUT
 	// takes in whoWon and outputs the correct name to who won
 	switch(mWhoWon) {
-		case 'X' : cout << mNameOfPlayer1
+		case 'X' : std::cout << mNameOfPlayer1
 						<< " HAS WON, his wisdom, his logic, his "
 						   "unwavering determination has out done "
 						   "the noble O's and now he shall go down "
 						   "as history. May his name Last through "
 						   "out the ages";
 					break;
-		case 'O' : cout << mNameOfPlayer2
+		case 'O' : std::cout << mNameOfPlayer2
 					 	<< " Has risen to Champion, his noble "
 						   "quest has given him the strength "
 						   "nay the will power to over come "
 						   "each and every battle to become"
 						   "CHAMPION OF THE CHAMPIONS ";
 					break;
-		case 'C' : 	cout << "Your Game has ended in a bloodly tie, truely"
-							" both you warriors are the best from each"
-							"land. Now rest up and do you dare to fight again"
-							"? your dou flee?";
-					cout << endl;
+		case 'C' : 	std::cout << "Your Game has ended in a bloody tie, truly"
+							     " both you warriors are the best from each"
+							     "land. Now rest up and do you dare to fight again"
+							     "? your do you flee?";
+					std::cout << endl;
 					break;
 	}
 
