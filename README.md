@@ -7,11 +7,12 @@
  		if there is a win or a tie and then re-prompt the user if they
  		would like to play again.
   _____________________________________________________________________
-  Inputs:
- 		player1  : Player 1's name
- 		player2  : Player 2's name
- 		row      : the row the current player wants
- 		col      : the column the current player wants
- 		contiune : user wants to play or not play
-  Outputs:
-    n/a
+ 	 Inputs:
+ 		 player1  : Player 1's name
+ 		 player2  : Player 2's name
+ 		 row      : the row the current player wants
+ 		 col      : the column the current player wants
+ 		 contiune : user wants to play or not play
+ 		Outputs:
+ 		 n/a
+ 	_____________________________________________________________________
