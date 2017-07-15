@@ -29,7 +29,6 @@ Player::~Player() {
  *		stores the players names in strings for later use.
  *************************************************************************/
 void Player::GetPlayers() {
-	//prompts the user for their name
 	std::cout << "what is your name Champion? ";
 	std::getline(std::cin, mPlayerName);
 

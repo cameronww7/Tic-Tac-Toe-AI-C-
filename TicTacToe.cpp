@@ -6,19 +6,16 @@
 #include "TicTacToe.h"
 
 TicTacToe::TicTacToe() {
-	// for loop to make each row  playable spot a white space
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
-		// for loop to make each column  playable spot a white space
 		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
-			// assigns each spot a white space
 			mBoard[rowCnt][colCnt]= ' ';
 		}
 	}
 
 	mNameOfPlayer1 = "";
 	mNameOfPlayer2 = "";
-	mWhoWon = 'x';
-	mToken = 'x';
+	mWhoWon        = 'C';
+	mToken         = 'C';
 }
 
 TicTacToe::~TicTacToe() {
@@ -37,7 +34,7 @@ TicTacToe::~TicTacToe() {
  * POST-CONDITIONS:
  *		none
  *************************************************************************/
-void TicTacToe::OutputInstruct() { //couts the instructions for the game
+void TicTacToe::OutputInstruct() {
 	std::cout << "Welcome Champions! You have fought bravely and your\n"
 			     "strength has gotten you thus far! Can your wisdom, your\n"
 				 "logic get you farther to become the alone standing\n"
@@ -73,20 +70,21 @@ void TicTacToe::OutputInstruct() { //couts the instructions for the game
  * POST-CONDITIONS:
  *		RETURNS: the current plays on the board
  *************************************************************************/
-void TicTacToe::DisplayBoard() { // tic tac toe Board - IN
-	int row; //row is declared
-	int col; //col is declared
+void TicTacToe::DisplayBoard() {
+	int row;
+	int col;
 	//clears the screen before the new board goes out
 	system("cls");
-	//as a space so it looks better!
+
 	std::cout << std::endl;
-	//prints the 1 2 3 for the top and bottom of the tic tac toe
 	std::cout << std::setw(10) << "1" << std::setw(8) << "2" << std::setw(9) << "3\n";
+
 	//first FOR loop creating the horizontal lines for the grid of the game
 	for (row = 0; row < 3; row++) {
-		std::cout << std::setw(7)  << "[" << row + 1      << "][1] | " << "[" << row+1;
-		std::cout << "][2] | "     << "[" << row + 1      << "][3]" << std::endl;
-		std::cout << std::setw(14) << "|" << std::setw(9) << "|" << std::endl;
+		std::cout << std::setw(7)  << "[" << row + 1 << "][1] | " << "[" << row + 1;
+		std::cout << "][2] | "     << "[" << row + 1 << "][3]"    << std::endl;
+		std::cout << std::setw(14) << "|" << std::setw(9) << "|"  << std::endl;
+
 		//FOR loop that prints the Lines for the grid for the game
 		for (col = 0; col < 3; col++) {
 			switch(col) {
@@ -105,11 +103,11 @@ void TicTacToe::DisplayBoard() { // tic tac toe Board - IN
 						break;
 			}
 		}
-
 		std::cout << std::setw(14) << "|" << std::setw(10) << "|\n";
+
 		//if statement to print the lines between to create rows
 		if (row != 2) {
-			std::cout << setw(32) << "-----------------------\n";
+			std::cout << std::setw(32) << "-----------------------\n";
 		}
 	}
 	std::cout << std::endl << std::endl;
@@ -129,12 +127,9 @@ void TicTacToe::DisplayBoard() { // tic tac toe Board - IN
  * 		There is none, it just makes the spaces int he array white spaces
  *
  *************************************************************************/
-void TicTacToe::InitBoard() { // tic tac toe Board - IN
-	// for loop to make each row  playable spot a white space
+void TicTacToe::InitBoard() {
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
-		// for loop to make each column  playable spot a white space
 		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
-			// assigns each spot a white space
 			mBoard[rowCnt][colCnt]= ' ';
 		}
 	}
@@ -155,7 +150,6 @@ void TicTacToe::InitBoard() { // tic tac toe Board - IN
  *		outputs the current winner with their name!
  *************************************************************************/
 void TicTacToe::OutputWinner () {
-	// takes in whoWon and outputs the correct name to who won
 	switch(mWhoWon) {
 		case 'X' : std::cout << mNameOfPlayer1 // XXX change this to the Player Class
 						<< " HAS WON, his wisdom, his logic, his "
@@ -178,7 +172,6 @@ void TicTacToe::OutputWinner () {
 					std::cout << endl;
 					break;
 	}
-
 }
 
 /**************************************************************************
@@ -197,14 +190,10 @@ void TicTacToe::OutputWinner () {
  *
  *************************************************************************/
 char TicTacToe::CheckWin() {
-	char winnerWinner; 		 //sets winnerWinner to a Tie
-	int  index;				 //declares of index
+	char winnerWinner = 'C';
+	int  index = 0;
 
-	// INITIALIZATIONS
-	index = 0;				 // sets index to zero
-	winnerWinner = 'C';
-
-	//enter the do while loop checking if their is a win and will exit
+	// enter the do while loop checking if their is a win and will exit
 	// if there is either a win or index is three
 	do {
 		//checks if there is a horizontal win
@@ -258,7 +247,6 @@ char TicTacToe::CheckWin() {
  *************************************************************************/
 
 char TicTacToe::SwitchToken () {
-	//If statement that will take in token and switch it to x or O's
 	if(mToken == 'X') {
 		mToken = 'O';
 	} else {

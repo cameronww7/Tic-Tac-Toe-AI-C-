@@ -17,12 +17,12 @@ public:
 	TicTacToe();
 	virtual ~TicTacToe();
 
-	void OutputInstruct(); // displays the instructions for the game
-	void DisplayBoard(); // tic tac toe Board - IN
-	void InitBoard(); // tic tac toe Board - IN
-	void OutputWinner(); // players O's name - OUT
+	void OutputInstruct();
+	void DisplayBoard();
+	void InitBoard();
+	void OutputWinner();
 
-	char CheckWin(); // tic tac toe Board - IN
+	char CheckWin();
 	char SwitchToken ();
 
 private:
@@ -31,7 +31,7 @@ private:
 
 	char   mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
 	char   mWhoWon;  // Winning Piece - IN
-	char   mToken;
+	char   mToken;	// current token -IN/OUT
 
 	string mNameOfPlayer1;  // name of player 1 - IN
 	string mNameOfPlayer2;  // name of player 2 - IN
