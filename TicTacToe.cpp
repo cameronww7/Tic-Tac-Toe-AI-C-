@@ -73,8 +73,6 @@ TicTacToe::TicTacToe() {
 		}
 	}
 
-	mNameOfPlayer1 = "";
-	mNameOfPlayer2 = "";
 	mWhoWon        = 'C';
 	mToken         = 'C';
 }
@@ -85,7 +83,7 @@ TicTacToe::~TicTacToe() {
 
 /**************************************************************************
  *
- *		 FUNCTION OutPutInstruct
+ *		 FUNCTION DisplayInstruct
  * _____________________________________________________________________
  *		This function will output to the players the rules and how
  *		to play this version of tic tac toe
@@ -95,7 +93,7 @@ TicTacToe::~TicTacToe() {
  * POST-CONDITIONS:
  *		none
  *************************************************************************/
-void TicTacToe::OutputInstruct() {
+void TicTacToe::DisplayInstruct() {
 	std::cout << "Welcome Champions! You have fought bravely and your\n"
 			     "strength has gotten you thus far! Can your wisdom, your\n"
 				 "logic get you farther to become the alone standing\n"
@@ -198,7 +196,7 @@ void TicTacToe::InitBoard() {
 
 /**************************************************************************
  *
- *		 FUNCTION OutputWinner
+ *		 FUNCTION DisplayWinner
  * _____________________________________________________________________
  *		This function will take in the char (either X or O) and output
  *		the user who won their name and say they have won the game.
@@ -210,16 +208,16 @@ void TicTacToe::InitBoard() {
  * POST-CONDITIONS:
  *		outputs the current winner with their name!
  *************************************************************************/
-void TicTacToe::OutputWinner () {
+void TicTacToe::DisplayWinner () {
 	switch(mWhoWon) {
-		case 'X' : std::cout << mNameOfPlayer1 // XXX change this to the Player Class
+		case 'X' : std::cout << mPlayer1.GetPlayerName() // XXX change this to the Player Class
 						<< " HAS WON, his wisdom, his logic, his "
 						   "unwavering determination has out done "
 						   "the noble O's and now he shall go down "
 						   "as history. May his name Last through "
 						   "out the ages";
 					break;
-		case 'O' : std::cout << mNameOfPlayer2
+		case 'O' : std::cout << mPlayer2.GetPlayerName()
 					 	<< " Has risen to Champion, his noble "
 						   "quest has given him the strength "
 						   "nay the will power to over come "

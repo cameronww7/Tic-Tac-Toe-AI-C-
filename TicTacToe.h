@@ -6,6 +6,8 @@
 #ifndef TICTACTOE_H_
 #define TICTACTOE_H_
 
+#include "Player.h"
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -18,10 +20,10 @@ public:
 	TicTacToe();
 	virtual ~TicTacToe();
 
-	void OutputInstruct();
+	void DisplayInstruct();
 	void DisplayBoard();
 	void InitBoard();
-	void OutputWinner();
+	void DisplayWinner();
 
 	char CheckWin();
 	char SwitchToken ();
@@ -34,8 +36,8 @@ private:
 	char   mWhoWon;  // Winning Piece - IN
 	char   mToken;	// current token -IN/OUT
 
-	string mNameOfPlayer1;  // name of player 1 - IN
-	string mNameOfPlayer2;  // name of player 2 - IN
+	Player mPlayer1;  // Player 1 - IN
+	Player mPlayer2;  // Player 2 - IN
 
 };
 

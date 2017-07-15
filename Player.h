@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <string>
 #include <stdlib.h>
+#include <limits>
 using namespace std;
 
 class Player {
@@ -17,7 +18,10 @@ public:
 	Player();
 	virtual ~Player();
 
-	void GetPlayer();
+	string GetPlayerName()  {return mPlayerName;};
+	char   GetPlayerToken() {return mPlayerToken;};
+
+	void PromptForPlayerInfo();
 
 private:
 	string mPlayerName;
