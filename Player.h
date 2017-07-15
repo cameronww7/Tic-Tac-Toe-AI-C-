@@ -17,10 +17,11 @@ public:
 	Player();
 	virtual ~Player();
 
-	void GetPlayers();
+	void GetPlayer();
 
 private:
 	string mPlayerName;
+	char   mPlayerToken;
 };
 
 #endif /* PLAYER_H_ */

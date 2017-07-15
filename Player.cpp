@@ -7,7 +7,8 @@
 
 Player::Player() {
 	// TODO Auto-generated constructor stub
-	mPlayerName = "xxx";
+	mPlayerName  = "xxx";
+	mPlayerToken ='x';
 }
 
 Player::~Player() {
@@ -16,19 +17,17 @@ Player::~Player() {
 
 /**************************************************************************
  *
- *		 FUNCTION GetPlayers
+ *		 FUNCTION GetPlayer
  * _____________________________________________________________________
- *		This function will prompt each user for their name, then store
- *		them to either X or O depending on who went first. Player 1 is X
- *		player 2 is O's.
+ *		This function will prompt the player for their name and token
+ *		the player should only pick an X or O;
  * _____________________________________________________________________
  * PRE-CONDITIONS:
- * 		player1   : player 1's name
- *		player2   : player 2's name
+ * 		mPlayerName   : player 1's name
  * POST-CONDITIONS:
  *		stores the players names in strings for later use.
  *************************************************************************/
-void Player::GetPlayers() {
+void Player::GetPlayer() {
 	std::cout << "what is your name Champion? ";
 	std::getline(std::cin, mPlayerName);
 

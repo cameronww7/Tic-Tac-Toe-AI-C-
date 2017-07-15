@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <string>
 #include <stdlib.h>
+#include <limits>
 using namespace std;
 
 class TicTacToe {
