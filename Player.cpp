@@ -64,7 +64,7 @@ void Player::PromptForPlayerInfo() {
 
 	mPlayerToken = CharInputCheck ("What shall your Token Be? ");
 
-	std::cout << "May your names become legend and be known for ever!";
+	std::cout << "May your name become legend and be known for ever!";
 	std::cout << std::endl;
 
 }
