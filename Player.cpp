@@ -5,36 +5,6 @@
 
 #include "Player.h"
 
-namespace {  // anonymous namespace Start
-/************************************************************************
- *  int CharInputCheck
- * _______________________________________________________________________
- * This function outputs the menu and tracks if the user inputs an
- *	invaild character or number within the range that was passed.
- * _______________________________________________________________________
- * PRE-CONDITIONS
- *		xPROMPT : prompt for user
- * POST-CONDITIONS
- * 		Returns a valid user choice (option) to the calling function
- ************************************************************************/
-char CharInputCheck (const string xPROMPT) {
-	bool someBool;					// PROCESSING	- determines whether
-									// 				  the menu is output
-	char input;						// IN & OUT		- user input choice
-
-	do {
-		someBool = false;
-
-		// OUTPUT - the menu
-		std::cout << xPROMPT;
-		std::cin.get(input);
-		std:cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	} while(someBool);
-
-	return input;
-}
-} // anonymous namespace end
-
 Player::Player() {
 	// TODO Auto-generated constructor stub
 	mPlayerName  = "xxx";

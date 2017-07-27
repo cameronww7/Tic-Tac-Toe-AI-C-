@@ -151,3 +151,9 @@ char InputValidation::CharInputCheck (const string xPROMPT) {
 
 	return input;
 }
+
+string InputValidation::StringInputCheck (const string xPROMPT) {
+	string tmp;
+
+	return tmp;
+}

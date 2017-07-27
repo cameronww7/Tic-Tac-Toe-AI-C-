@@ -27,6 +27,8 @@ public:
 						  const float  xIN_MAX);	 // IN & OUT - maximum option
 
 	char CharInputCheck (const string xPROMPT);
+
+	string StringInputCheck(const string xPROMPT);
 };
 
 #endif /* INPUTVALIDATION_H_ */
