@@ -11,6 +11,7 @@
 #include <string>
 #include <stdlib.h>
 #include <limits>
+#include <algorithm>
 using namespace std;
 
 class InputValidation {

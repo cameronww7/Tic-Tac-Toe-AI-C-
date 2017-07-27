@@ -153,7 +153,15 @@ char InputValidation::CharInputCheck (const string xPROMPT) {
 }
 
 string InputValidation::StringInputCheck (const string xPROMPT) {
+	char symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
+	int sizeOfSymbols = sizeof(symbolsToRemove) / sizeof(char);
 	string tmp;
+
+
+	for (int index = 0; index < sizeOfSymbols; index++) {
+		std::replace(tmp.begin(), tmp.end(), symbolsToRemove[index], ' ');
+	}
+
 
 	return tmp;
 }
