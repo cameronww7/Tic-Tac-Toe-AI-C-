@@ -18,7 +18,7 @@ using namespace std;
 class TicTacToe {
 public:
 	TicTacToe();
-	virtual ~TicTacToe();
+	virtual ~TicTacToe() {};
 
 	void DisplayInstruct();
 	void DisplayBoard();

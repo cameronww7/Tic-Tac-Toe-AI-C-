@@ -8,11 +8,7 @@
 Player::Player() {
 	// TODO Auto-generated constructor stub
 	mPlayerName  = "xxx";
-	mPlayerToken ='x';
-}
-
-Player::~Player() {
-	// TODO Auto-generated destructor stub
+	mPlayerToken = 'x';
 }
 
 /**************************************************************************

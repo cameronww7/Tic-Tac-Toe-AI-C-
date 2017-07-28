@@ -16,7 +16,7 @@ using namespace std;
 class Player {
 public:
 	Player();
-	virtual ~Player();
+	virtual ~Player() {};
 
 	string GetPlayerName()  {return mPlayerName;};
 	char   GetPlayerToken() {return mPlayerToken;};

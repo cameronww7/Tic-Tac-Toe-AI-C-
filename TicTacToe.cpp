@@ -16,10 +16,6 @@ TicTacToe::TicTacToe() {
 	mToken         = 'C';
 }
 
-TicTacToe::~TicTacToe() {
-	// TODO Auto-generated destructor stub
-}
-
 /**************************************************************************
  *
  *		 FUNCTION DisplayInstruct
