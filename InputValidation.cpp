@@ -135,18 +135,20 @@ char InputValidation::CharInputCheck (const string xPROMPT) {
 	char input;	           // IN & OUT	 - user input choice
 	char inputCheck;
 
-	std::cout << xPROMPT;
 	do {
+		std::cout << xPROMPT;
+		std::cin.get(input);
+		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 		std::cout << "Are you sure your input is correct (y or n) : ";
 		std::cin.get(inputCheck);
+		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 		if (inputCheck == 'y') {
 			someBool = false;
 		} else if (inputCheck == 'n') {
 			someBool = true;
 		}
-		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
 	} while(someBool);
 
 	return input;
