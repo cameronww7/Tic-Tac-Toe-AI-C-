@@ -131,13 +131,13 @@ float InputValidation::FloatInputCheck(const string xMENU_FORMAT,
  * 		Returns a valid user choice (option) to the calling function
  ************************************************************************/
 char InputValidation::CharInputCheck (const string xPROMPT) {
-	bool someBool = false; // PROCESSING - determines whether the menu is output
-	char input;	           // IN & OUT	 - user input choice
+	bool exitValue = false; // PROCESSING - determines whether the menu is output
+	char userInput;	           // IN & OUT	 - user input choice
 	char inputCheck;
 
 	do {
 		std::cout << xPROMPT;
-		std::cin.get(input);
+		std::cin.get(userInput);
 		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 		std::cout << "Are you sure your input is correct (y or n) : ";
@@ -145,25 +145,46 @@ char InputValidation::CharInputCheck (const string xPROMPT) {
 		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 		if (inputCheck == 'y') {
-			someBool = false;
+			exitValue = false;
 		} else if (inputCheck == 'n') {
-			someBool = true;
+			exitValue = true;
 		}
-	} while(someBool);
+	} while(exitValue);
 
-	return input;
+	return userInput;
 }
 
 string InputValidation::StringInputCheck (const string xPROMPT) {
-	char symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
-	int sizeOfSymbols = sizeof(symbolsToRemove) / sizeof(char);
-	string tmp;
+	string userInput;
+	char   inputCheck;
+	char   symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
+	int    sizeOfSymbols      = sizeof(symbolsToRemove) / sizeof(char);
+	bool   exitValue          = false;
 
 
 	for (int index = 0; index < sizeOfSymbols; index++) {
-		std::replace(tmp.begin(), tmp.end(), symbolsToRemove[index], ' ');
+		std::replace(userInput.begin(), userInput.end(), symbolsToRemove[index], ' ');
 	}
 
+	do {
+		std::cout << xPROMPT;
+		std::getline(std::cin,userInput);
+		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-	return tmp;
+		for (int index = 0; index < sizeOfSymbols; index++) {
+			std::replace(userInput.begin(), userInput.end(), symbolsToRemove[index], ' ');
+		}
+
+		std::cout << "Are you sure your input is correct (y or n) : ";
+		std::cin.get(inputCheck);
+		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+		if (inputCheck == 'y') {
+			exitValue = false;
+		} else if (inputCheck == 'n') {
+			exitValue = true;
+		}
+	} while(exitValue);
+
+	return userInput;
 }
