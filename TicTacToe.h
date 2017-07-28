@@ -7,6 +7,7 @@
 #define TICTACTOE_H_
 
 #include "Player.h"
+#include "InputValidation.h"
 
 #include <iostream>
 #include <iomanip>
@@ -15,7 +16,7 @@
 #include <limits>
 using namespace std;
 
-class TicTacToe {
+class TicTacToe : public InputValidation {
 public:
 	TicTacToe();
 	virtual ~TicTacToe() {};
@@ -34,7 +35,7 @@ private:
 
 	char   mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
 	char   mWhoWon;  // Winning Piece - IN
-	char   mToken;	// current token -IN/OUT
+	char   mToken;	 // current token -IN/OUT
 
 	Player mPlayer1;  // Player 1 - IN
 	Player mPlayer2;  // Player 2 - IN

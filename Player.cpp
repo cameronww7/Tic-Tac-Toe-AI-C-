@@ -6,7 +6,6 @@
 #include "Player.h"
 
 Player::Player() {
-	// TODO Auto-generated constructor stub
 	mPlayerName  = "xxx";
 	mPlayerToken = 'x';
 }
@@ -32,6 +31,5 @@ void Player::PromptForPlayerInfo() {
 
 	std::cout << "May your name become legend and be known for ever!";
 	std::cout << std::endl;
-
 }
 

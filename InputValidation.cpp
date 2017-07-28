@@ -18,15 +18,13 @@
  * POST-CONDITIONS
  * 		Returns a valid user choice (option) to the calling function
  ************************************************************************/
-int InputValidation::IntInputCheck(const string xMENU_FORMAT, // IN & OUT - output string
-		 	 					   const int    xIN_MIN,	  // IN & OUT - minimum option
-								   const int    xIN_MAX) {	  // IN & OUT - maximum option
-	bool someBool;	// PROCESSING	- determines whether the menu is output
-	int option;		// IN & OUT	- user input choice
+int InputValidation::IntInputCheck(const string xMENU_FORMAT,
+		 	 					   const int    xIN_MIN,
+								   const int    xIN_MAX) {
+	bool exitValue = false;	// Exit Value
+	int option;				// IN & OUT	- user input choice
 
 	do {
-		someBool = false;
-
 		std::cout << xMENU_FORMAT;
 
 		/*****************************************************************
@@ -40,7 +38,7 @@ int InputValidation::IntInputCheck(const string xMENU_FORMAT, // IN & OUT - outp
 				      << " and " << xIN_MAX << " ****";
 			std::cin.clear();
 
-			someBool = true;
+			exitValue = true;
 			std::cout << std::endl << std::endl;
 		} else if (option > xIN_MAX || option < xIN_MIN) {
 			std::cout << std::endl;
@@ -49,10 +47,10 @@ int InputValidation::IntInputCheck(const string xMENU_FORMAT, // IN & OUT - outp
 			std::cout << "**** Please input a number between "
 				      << xIN_MIN << " and " << xIN_MAX << " ****\n";
 			std::cout << std::endl;
-			someBool = true;
+			exitValue = true;
 		}
 		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	} while(someBool);
+	} while (exitValue);
 
 	return option;
 }
@@ -73,12 +71,10 @@ int InputValidation::IntInputCheck(const string xMENU_FORMAT, // IN & OUT - outp
 float InputValidation::FloatInputCheck(const string xMENU_FORMAT,
 		 	 					       const float  xIN_MIN,
 								       const float  xIN_MAX) {
-	bool someBool = false;; // PROCESSING - determines whether the menu is output
-	int option;	            // IN & OUT	 - user input choice
+	bool exitValue = false;; // PROCESSING - determines whether the menu is output
+	int option;	             // IN & OUT	 - user input choice
 
 	do {
-		someBool = false;
-
 		std::cout << xMENU_FORMAT;
 
 		/*****************************************************************
@@ -92,7 +88,7 @@ float InputValidation::FloatInputCheck(const string xMENU_FORMAT,
 				      << " and " << xIN_MAX << " ****";
 			std::cin.clear();
 
-			someBool = true;
+			exitValue = true;
 			std::cout << std::endl << std::endl;
 		} else if (option > xIN_MAX || option < xIN_MIN) {
 			std::cout << std::endl;
@@ -101,10 +97,10 @@ float InputValidation::FloatInputCheck(const string xMENU_FORMAT,
 			std::cout << "**** Please input a number between "
 				      << xIN_MIN << " and " << xIN_MAX << " ****\n";
 			std::cout << std::endl;
-			someBool = true;
+			exitValue = true;
 		}
 		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	} while(someBool);
+	} while (exitValue);
 
 	return option;
 }
@@ -122,8 +118,8 @@ float InputValidation::FloatInputCheck(const string xMENU_FORMAT,
  ************************************************************************/
 char InputValidation::CharInputCheck (const string xPROMPT) {
 	bool exitValue = false; // PROCESSING - determines whether the menu is output
-	char userInput;	           // IN & OUT	 - user input choice
-	char inputCheck;
+	char userInput;	        // IN & OUT	 - user input choice
+	char inputCheck; 		// IN - confirms user input
 
 	do {
 		std::cout << xPROMPT;
@@ -133,6 +129,7 @@ char InputValidation::CharInputCheck (const string xPROMPT) {
 		std::cout << "Are you sure your input is correct (y or n) : ";
 		std::cin.get(inputCheck);
 		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		std::tolower(inputCheck);
 
 		if (inputCheck == 'y') {
 			exitValue = false;
@@ -156,8 +153,8 @@ char InputValidation::CharInputCheck (const string xPROMPT) {
  * 		Returns a valid user choice (option) to the calling function
  ************************************************************************/
 string InputValidation::StringInputCheck (const string xPROMPT) {
-	string userInput;
-	char   inputCheck;
+	string userInput;	// IN & OUT	 - user input choice
+	char   inputCheck;	// IN - confirms user input
 	char   symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
 	int    sizeOfSymbols      = sizeof(symbolsToRemove) / sizeof(char);
 	bool   exitValue          = false;
@@ -174,6 +171,7 @@ string InputValidation::StringInputCheck (const string xPROMPT) {
 		std::cout << "Are you sure your input is correct (y or n) : ";
 		std::cin.get(inputCheck);
 		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		std::tolower(inputCheck);
 
 		if (inputCheck == 'y') {
 			exitValue = false;

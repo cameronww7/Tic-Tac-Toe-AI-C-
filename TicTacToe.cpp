@@ -65,8 +65,6 @@ void TicTacToe::DisplayInstruct() {
  *		RETURNS: the current plays on the board
  *************************************************************************/
 void TicTacToe::DisplayBoard() {
-	int row;
-	int col;
 	//clears the screen before the new board goes out
 	system("cls");
 
@@ -74,13 +72,13 @@ void TicTacToe::DisplayBoard() {
 	std::cout << std::setw(10) << "1" << std::setw(8) << "2" << std::setw(9) << "3\n";
 
 	//first FOR loop creating the horizontal lines for the grid of the game
-	for (row = 0; row < 3; row++) {
+	for (int row = 0; row < NUM_ROWS; row++) {
 		std::cout << std::setw(7)  << "[" << row + 1 << "][1] | " << "[" << row + 1;
 		std::cout << "][2] | "     << "[" << row + 1 << "][3]"    << std::endl;
 		std::cout << std::setw(14) << "|" << std::setw(9) << "|"  << std::endl;
 
 		//FOR loop that prints the Lines for the grid for the game
-		for (col = 0; col < 3; col++) {
+		for (int col = 0; col < NUM_COLS; col++) {
 			switch(col) {
 				case 0: std::cout << row + 1 << std::setw(9) << mBoard[row][col];
 						std::cout << std::setw(4) << "|";
