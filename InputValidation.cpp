@@ -5,16 +5,6 @@
 
 #include "InputValidation.h"
 
-InputValidation::InputValidation() {
-	// TODO Auto-generated constructor stub
-
-}
-
-InputValidation::~InputValidation() {
-	// TODO Auto-generated destructor stub
-}
-
-
 /************************************************************************
  *  int IntInputCheck
  * _______________________________________________________________________
@@ -154,17 +144,23 @@ char InputValidation::CharInputCheck (const string xPROMPT) {
 	return userInput;
 }
 
+/************************************************************************
+ *  char StringInputCheck
+ * _______________________________________________________________________
+ * This function outputs the menu and tracks if the user inputs an
+ *	Invalid character or number within the range that was passed.
+ * _______________________________________________________________________
+ * PRE-CONDITIONS
+ *		xPROMPT : prompt for user
+ * POST-CONDITIONS
+ * 		Returns a valid user choice (option) to the calling function
+ ************************************************************************/
 string InputValidation::StringInputCheck (const string xPROMPT) {
 	string userInput;
 	char   inputCheck;
 	char   symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
 	int    sizeOfSymbols      = sizeof(symbolsToRemove) / sizeof(char);
 	bool   exitValue          = false;
-
-
-	for (int index = 0; index < sizeOfSymbols; index++) {
-		std::replace(userInput.begin(), userInput.end(), symbolsToRemove[index], ' ');
-	}
 
 	do {
 		std::cout << xPROMPT;

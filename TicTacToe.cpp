@@ -5,67 +5,6 @@
 
 #include "TicTacToe.h"
 
-namespace {  // anonymous namespace Start
-/************************************************************************
- *  int NumberError
- * _______________________________________________________________________
- * This function outputs the menu and tracks if the user inputs an
- *	invaild character or number within the range that was passed.
- * _______________________________________________________________________
- * PRE-CONDITIONS
- *		MENU_FORMAT : menu format needs to be predetermined
- *		IN_MIN 		: minimum input option needs to be predetermined
- *		IN_MAX		: maximum input option needs to be predetermined
- * POST-CONDITIONS
- * 		Returns a valid user choice (option) to the calling function
- ************************************************************************/
-int NumberError(const string MENU_FORMAT,	// IN & OUT		- output string
-		 	 	const int IN_MIN,			// IN & OUT		- minimum option
-		 	 	const int IN_MAX)			// IN & OUT		- maximum option
-{
-	bool someBool;					// PROCESSING	- determines whether
-									// 				  the menu is output
-	int option;						// IN & OUT		- user input choice
-
-	do
-	{
-		someBool = false;
-
-		// OUTPUT - the menu
-		cout << MENU_FORMAT;
-
-		/*****************************************************************
-		 * This is a check for the user's input. It will first check
-		 * 	if the user has put in a vaild number, if invaild it will
-		 *	clear the input then reoutput the menu until and do the
-		 *	check's until the user puts in a vaild entry.
-		 *****************************************************************/
-		if(!(cin >> option))
-		{
-			cout << "\n**** Please input a NUMBER between " << IN_MIN
-				 << " and " << IN_MAX << " ****";
-			cin.clear();
-
-			someBool  = true;
-			cout << endl << endl;
-		}
-		else if (option > IN_MAX || option < IN_MIN)
-		{
-			cout << endl;
-			cout << "**** The number " << option << " is an invalid "
-					"entry     ****\n";
-			cout << "**** Please input a number between "
-				 << IN_MIN << " and " << IN_MAX << " ****\n";
-			cout << endl;
-			someBool = true;
-		}
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	}while(someBool);
-
-	return option;
-}
-} // anonymous namespace end
-
 TicTacToe::TicTacToe() {
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
 		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
