@@ -20,8 +20,8 @@ public:
 	Player();
 	virtual ~Player() {};
 
-	string GetPlayerName()  {return mPlayerName;};
-	char   GetPlayerToken() {return mPlayerToken;};
+	const string & GetPlayerName()  {return mPlayerName;};
+	const char   & GetPlayerToken() {return mPlayerToken;};
 
 	void PromptForPlayerInfo(); // Prompts User for their Information
 

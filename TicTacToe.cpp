@@ -143,7 +143,7 @@ void TicTacToe::InitBoard() {
  *************************************************************************/
 void TicTacToe::DisplayWinner () {
 	switch(mWhoWon) {
-		case 'X' : std::cout << mPlayer1.GetPlayerName() // XXX change this to the Player Class
+		case 'X' : std::cout << mPlayer1.GetPlayerName()
 						<< " HAS WON, his wisdom, his logic, his "
 						   "unwavering determination has out done "
 						   "the noble O's and now he shall go down "

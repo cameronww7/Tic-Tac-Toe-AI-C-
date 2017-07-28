@@ -19,17 +19,17 @@ public:
 	InputValidation() {};
 	virtual ~InputValidation() {};
 
-	int IntInputCheck(const string xMENU_FORMAT, // IN & OUT - Prompt for User
-			 	 	  const int    xIN_MIN,	     // IN & OUT - minimum option
-			 	 	  const int    xIN_MAX);	 // IN & OUT - maximum option
+	int IntInputCheck(const string & xMENU_FORMAT, // IN & OUT - Prompt for User
+			 	 	  const int    & xIN_MIN,	     // IN & OUT - minimum option
+			 	 	  const int    & xIN_MAX);	 // IN & OUT - maximum option
 
-	float FloatInputCheck(const string xMENU_FORMAT, // IN & OUT - Prompt for User
-	 	 	  	  	  	  const float  xIN_MIN,	     // IN & OUT - minimum option
-						  const float  xIN_MAX);	 // IN & OUT - maximum option
+	float FloatInputCheck(const string & xMENU_FORMAT, // IN & OUT - Prompt for User
+	 	 	  	  	  	  const float  & xIN_MIN,	     // IN & OUT - minimum option
+						  const float  & xIN_MAX);	 // IN & OUT - maximum option
 
-	char CharInputCheck (const string xPROMPT); // IN & OUT - Prompt for User
+	char CharInputCheck (const string & xPROMPT); // IN & OUT - Prompt for User
 
-	string StringInputCheck(const string xPROMPT); // IN & OUT - Prompt for User
+	string StringInputCheck(const string & xPROMPT); // IN & OUT - Prompt for User
 };
 
 #endif /* INPUTVALIDATION_H_ */

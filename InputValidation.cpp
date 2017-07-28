@@ -18,9 +18,9 @@
  * POST-CONDITIONS
  * 		Returns a valid user choice (option) to the calling function
  ************************************************************************/
-int InputValidation::IntInputCheck(const string xMENU_FORMAT,
-		 	 					   const int    xIN_MIN,
-								   const int    xIN_MAX) {
+int InputValidation::IntInputCheck(const string & xMENU_FORMAT,
+		 	 					   const int    & xIN_MIN,
+								   const int    & xIN_MAX) {
 	bool exitValue = false;	// Exit Value
 	int option;				// IN & OUT	- user input choice
 
@@ -68,9 +68,9 @@ int InputValidation::IntInputCheck(const string xMENU_FORMAT,
  * POST-CONDITIONS
  * 		Returns a valid user choice (option) to the calling function
  ************************************************************************/
-float InputValidation::FloatInputCheck(const string xMENU_FORMAT,
-		 	 					       const float  xIN_MIN,
-								       const float  xIN_MAX) {
+float InputValidation::FloatInputCheck(const string & xMENU_FORMAT,
+		 	 					       const float  & xIN_MIN,
+								       const float  & xIN_MAX) {
 	bool exitValue = false;; // PROCESSING - determines whether the menu is output
 	int option;	             // IN & OUT	 - user input choice
 
@@ -116,7 +116,7 @@ float InputValidation::FloatInputCheck(const string xMENU_FORMAT,
  * POST-CONDITIONS
  * 		Returns a valid user choice (option) to the calling function
  ************************************************************************/
-char InputValidation::CharInputCheck (const string xPROMPT) {
+char InputValidation::CharInputCheck (const string & xPROMPT) {
 	bool exitValue = false; // PROCESSING - determines whether the menu is output
 	char userInput;	        // IN & OUT	 - user input choice
 	char inputCheck; 		// IN - confirms user input
@@ -152,7 +152,7 @@ char InputValidation::CharInputCheck (const string xPROMPT) {
  * POST-CONDITIONS
  * 		Returns a valid user choice (option) to the calling function
  ************************************************************************/
-string InputValidation::StringInputCheck (const string xPROMPT) {
+string InputValidation::StringInputCheck (const string & xPROMPT) {
 	string userInput;	// IN & OUT	 - user input choice
 	char   inputCheck;	// IN - confirms user input
 	char   symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
@@ -171,7 +171,7 @@ string InputValidation::StringInputCheck (const string xPROMPT) {
 		std::cout << "Are you sure your input is correct (y or n) : ";
 		std::cin.get(inputCheck);
 		std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		std::tolower(inputCheck);
+		inputCheck = std::tolower(inputCheck);
 
 		if (inputCheck == 'y') {
 			exitValue = false;
