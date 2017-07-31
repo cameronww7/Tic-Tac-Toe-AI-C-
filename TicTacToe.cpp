@@ -237,7 +237,6 @@ char TicTacToe::CheckWin() {
  * POST-CONDITIONS:
  *		token : switches to the other player
  *************************************************************************/
-
 char TicTacToe::SwitchToken () {
 	if(mToken == 'X') {
 		mToken = 'O';

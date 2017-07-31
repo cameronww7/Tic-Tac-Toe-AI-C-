@@ -24,12 +24,11 @@ Player::Player() {
  *		mPlayerToken - Stores the player's Token in a char variable
  *************************************************************************/
 void Player::PromptForPlayerInfo() {
-	std::cout << "What is your name Champion? ";
-	std::getline(std::cin, mPlayerName);
-
-	mPlayerToken = CharInputCheck ("What shall your Token Be? ");
+	mPlayerName  = StringInputCheck("What is your name Champion? ");
+	mPlayerToken = CharInputCheck("What shall your Token Be? ");
 
 	std::cout << "May your name become legend and be known for ever!";
 	std::cout << std::endl;
+
 }
 
