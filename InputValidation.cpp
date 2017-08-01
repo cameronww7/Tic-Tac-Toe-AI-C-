@@ -183,6 +183,18 @@ string InputValidation::StringInputCheck (const string & xPROMPT) {
 	return userInput;
 }
 
+/************************************************************************
+ *  string StringCharacterCheck
+ * _______________________________________________________________________
+ * This function will take in a string and then parse through it making
+ * sure all valid characters are in the string and will replace the
+ * invalid characters with blanks.
+ * _______________________________________________________________________
+ * PRE-CONDITIONS
+ *		xPROMPT : prompt for user
+ * POST-CONDITIONS
+ * 		Returns a valid user choice (option) to the calling function
+ ************************************************************************/
 string InputValidation::StringCharacterCheck(const string & xStringToBeChecked) {
 	string userInput = xStringToBeChecked;	// IN & OUT	 - user input choice
 	char   symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
@@ -193,4 +205,56 @@ string InputValidation::StringCharacterCheck(const string & xStringToBeChecked) 
 	}
 
 	return userInput;
+}
+
+/************************************************************************
+ *  int IntCheck
+ * _______________________________________________________________________
+ * This function will take in a int and then check that it is between the
+ * given input ranges and if not return's a -1 as the value;
+ * _______________________________________________________________________
+ * PRE-CONDITIONS
+ *		xIntToBeChecked - Value to be checked
+ *	    xIN_MIN			- Min Value of possible input
+ *		xIN_MAX			- Max value of possible input
+ * POST-CONDITIONS
+ * 		option - returns either the same value or -1.1 as an error
+ ************************************************************************/
+int InputValidation::IntCheck(const int & xIntToBeChecked,
+		 	 	 	 	 	  const int & xIN_MIN,
+							  const int & xIN_MAX) {
+	int option = xIntToBeChecked;
+
+	if (option > xIN_MAX || option < xIN_MIN) {
+		std::cout << "error";
+		option = -1;
+	}
+
+	return option;
+}
+
+/************************************************************************
+ *  float FloatCheck
+ * _______________________________________________________________________
+ * This function will take in a float and then check that it is between the
+ * given input ranges and if not return's a -1.1 as the value;
+ * _______________________________________________________________________
+ * PRE-CONDITIONS
+ *		xFloatToBeChecked - Value to be checked
+ *	    xIN_MIN			  - Min Value of possible input
+ *		xIN_MAX			  - Max value of possible input
+ * POST-CONDITIONS
+ * 		option - returns either the same value or -1.1 as an error
+ ************************************************************************/
+float InputValidation::FloatCheck(const float & xFloatToBeChecked,
+ 	 	  	  	 	 	 	 	  const float & xIN_MIN,
+								  const float & xIN_MAX) {
+	int option = xFloatToBeChecked;
+
+	if (option > xIN_MAX || option < xIN_MIN) {
+		std::cout << "error";
+		option = -1.1;
+	}
+
+	return option;
 }
