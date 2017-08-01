@@ -30,6 +30,9 @@ public:
 	char CharInputCheck(const string & xPROMPT); // IN & OUT - Prompt for User
 
 	string StringInputCheck(const string & xPROMPT); // IN & OUT - Prompt for User
+
+	// Variable Check
+	string StringCharacterCheck(const string & xStringToBeChecked);
 };
 
 #endif /* INPUTVALIDATION_H_ */

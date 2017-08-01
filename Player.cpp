@@ -45,7 +45,7 @@ void Player::PromptForPlayerInfo() {
  *		mPlayerName  - Stores the player's Name in a string variable
  *************************************************************************/
 void Player::SetPlayerName(const string & xName) {
-	mPlayerName = xName;
+	mPlayerName = StringCharacterCheck(xName);
 }
 
 /**************************************************************************
@@ -80,6 +80,6 @@ void Player::SetPlayerToken(const char & xToken) {
  *************************************************************************/
 void Player::SetPlayerNameAndToken(const string & xName,
 						           const char   & xToken) {
-	mPlayerName = xName;
+	mPlayerName = StringCharacterCheck(xName);
 	mPlayerToken = xToken;
 }

@@ -182,3 +182,15 @@ string InputValidation::StringInputCheck (const string & xPROMPT) {
 
 	return userInput;
 }
+
+string InputValidation::StringCharacterCheck(const string & xStringToBeChecked) {
+	string userInput = xStringToBeChecked;	// IN & OUT	 - user input choice
+	char   symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
+	int    sizeOfSymbols      = sizeof(symbolsToRemove) / sizeof(char);
+
+	for (int index = 0; index < sizeOfSymbols; index++) {
+		std::replace(userInput.begin(), userInput.end(), symbolsToRemove[index], ' ');
+	}
+
+	return userInput;
+}

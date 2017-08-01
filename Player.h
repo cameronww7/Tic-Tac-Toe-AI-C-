@@ -20,15 +20,18 @@ public:
 	Player();
 	virtual ~Player() {};
 
+	// Getters
 	const string & GetPlayerName()  {return mPlayerName;};
 	const char   & GetPlayerToken() {return mPlayerToken;};
 
+	// Setters
 	void SetPlayerName(const string & xName);
 	void SetPlayerToken(const char & xToken);
 	void SetPlayerNameAndToken(const string & xName,
 							   const char   & xToken);
 
-	void PromptForPlayerInfo(); // Prompts User for their Information
+	// Other Stuff
+	void PromptForPlayerInfo();
 
 private:
 	string mPlayerName;  // Player's chosen name
