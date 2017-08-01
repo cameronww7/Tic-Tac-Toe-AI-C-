@@ -23,6 +23,11 @@ public:
 	const string & GetPlayerName()  {return mPlayerName;};
 	const char   & GetPlayerToken() {return mPlayerToken;};
 
+	void SetPlayerName(const string & xName);
+	void SetPlayerToken(const char & xToken);
+	void SetPlayerNameAndToken(const string & xName,
+							   const char   & xToken);
+
 	void PromptForPlayerInfo(); // Prompts User for their Information
 
 private:
