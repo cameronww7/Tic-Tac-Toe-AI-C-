@@ -23,6 +23,13 @@ public:
 	virtual ~AI();
 
 private:
+	static const int NUM_ROWS = 3; // the size of the columns in the array
+	static const int NUM_COLS = 3; // the size of the rows in the array
+
+	TicTacToe TicTacToeGame;
+	Player PlayerOne;
+	Player PlayerTwo;
+
 
 };
 
