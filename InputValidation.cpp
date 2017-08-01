@@ -191,20 +191,20 @@ string InputValidation::StringInputCheck (const string & xPROMPT) {
  * invalid characters with blanks.
  * _______________________________________________________________________
  * PRE-CONDITIONS
- *		xPROMPT : prompt for user
+ *		xStringToBeChecked : string to be checked
  * POST-CONDITIONS
- * 		Returns a valid user choice (option) to the calling function
+ * 		valueToBeChecked - returns checked string
  ************************************************************************/
 string InputValidation::StringCharacterCheck(const string & xStringToBeChecked) {
-	string userInput = xStringToBeChecked;	// IN & OUT	 - user input choice
+	string valueToBeChecked = xStringToBeChecked;	// IN & OUT	 - user input choice
 	char   symbolsToRemove [] = {'!', '?', ',', '\'', '.', '@'};
 	int    sizeOfSymbols      = sizeof(symbolsToRemove) / sizeof(char);
 
 	for (int index = 0; index < sizeOfSymbols; index++) {
-		std::replace(userInput.begin(), userInput.end(), symbolsToRemove[index], ' ');
+		std::replace(valueToBeChecked.begin(), valueToBeChecked.end(), symbolsToRemove[index], ' ');
 	}
 
-	return userInput;
+	return valueToBeChecked;
 }
 
 /************************************************************************
@@ -218,19 +218,19 @@ string InputValidation::StringCharacterCheck(const string & xStringToBeChecked) 
  *	    xIN_MIN			- Min Value of possible input
  *		xIN_MAX			- Max value of possible input
  * POST-CONDITIONS
- * 		option - returns either the same value or -1.1 as an error
+ * 		valueToBeChecked - returns either the same value or -1.1 as an error
  ************************************************************************/
 int InputValidation::IntCheck(const int & xIntToBeChecked,
 		 	 	 	 	 	  const int & xIN_MIN,
 							  const int & xIN_MAX) {
-	int option = xIntToBeChecked;
+	int valueToBeChecked = xIntToBeChecked;
 
-	if (option > xIN_MAX || option < xIN_MIN) {
+	if (valueToBeChecked > xIN_MAX || valueToBeChecked < xIN_MIN) {
 		std::cout << "error";
-		option = -1;
+		valueToBeChecked = -1;
 	}
 
-	return option;
+	return valueToBeChecked;
 }
 
 /************************************************************************
@@ -244,17 +244,17 @@ int InputValidation::IntCheck(const int & xIntToBeChecked,
  *	    xIN_MIN			  - Min Value of possible input
  *		xIN_MAX			  - Max value of possible input
  * POST-CONDITIONS
- * 		option - returns either the same value or -1.1 as an error
+ * 		valueToBeChecked - returns either the same value or -1.1 as an error
  ************************************************************************/
 float InputValidation::FloatCheck(const float & xFloatToBeChecked,
  	 	  	  	 	 	 	 	  const float & xIN_MIN,
 								  const float & xIN_MAX) {
-	int option = xFloatToBeChecked;
+	int valueToBeChecked = xFloatToBeChecked;
 
-	if (option > xIN_MAX || option < xIN_MIN) {
+	if (valueToBeChecked > xIN_MAX || valueToBeChecked < xIN_MIN) {
 		std::cout << "error";
-		option = -1.1;
+		valueToBeChecked = -1.1;
 	}
 
-	return option;
+	return valueToBeChecked;
 }
