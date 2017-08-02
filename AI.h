@@ -22,6 +22,8 @@ public:
 	AI();
 	virtual ~AI();
 
+	bool IsThereAMove(TicTacToe mTicTacToeGame);
+
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
 	static const int NUM_COLS = 3; // the size of the rows in the array
