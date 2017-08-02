@@ -6,6 +6,8 @@
 #include "AI.h"
 
 AI::AI() {
+	mPlayerOne.SetPlayerNameAndToken("Jim", 'x');
+	mPlayerTwo.SetPlayerNameAndToken("Sam", 'o');
 
 }
 
