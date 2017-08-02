@@ -23,6 +23,7 @@ public:
 	virtual ~AI();
 
 	bool IsThereAMove(TicTacToe mTicTacToeGame);
+	int  HowManyPossibleMoves(TicTacToe mTicTacToeGame);
 
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
