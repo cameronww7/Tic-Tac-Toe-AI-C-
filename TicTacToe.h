@@ -29,6 +29,8 @@ public:
 	ptr  GetBoard() {return mBoard;};
 	char GetWhoWonToken() {return mWhoWon;};
 	char GetWhosTurnItIs() {return mToken;};
+	Player GetPlayerOne() {return mPlayer1;};
+	Player GetPlayerTwo() {return mPlayer2;};
 
 	// Display
 	void DisplayInstruct();
