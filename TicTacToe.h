@@ -26,7 +26,9 @@ public:
 	typedef char (*ptr)[3];
 
 	// Getters
-	ptr GetBoard() {return mBoard;};
+	ptr  GetBoard() {return mBoard;};
+	char GetWhoWonToken() {return mWhoWon;};
+	char GetWhosTurnItIs() {return mToken;};
 
 	// Display
 	void DisplayInstruct();
@@ -39,9 +41,7 @@ public:
 
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
-	static const int NUM_COLS = 3; // the size of the rows in the array
-
-
+	static const int NUM_COLS = 3; // the size of the rows in the arrayb
 
 	char   mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
 	char   mWhoWon;  // Winning Piece - IN
