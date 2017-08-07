@@ -15,18 +15,23 @@
 #include <string>
 #include <stdlib.h>
 #include <limits>
+#include <bits/stdc++.h>
 using namespace std;
+
+struct mMove
+{
+    int row, col;
+};
 
 class AI {
 public:
 	AI();
 	virtual ~AI();
 
-	bool IsThereAMove();
-	int  HowManyPossibleMoves();
+	bool IsThereAMove(TicTacToe xTicTacToeGame);
+	int  HowManyPossibleMoves(TicTacToe xTicTacToeGame);
 
 	void MakeAMove();
-	int  CheckStateOfBoard();
 	int  MiniMax(TicTacToe xTicTacToeGame,
 				int 	  xDepth,
 				bool 	  xIsMax,
@@ -41,6 +46,8 @@ private:
 	Player    mPlayerOne;
 	Player    mPlayerTwo;
 
+	int CheckStateOfBoard(TicTacToe xTicTacToeGame);
+	mMove FindBestMove(TicTacToe xTicTacToeGame);
 
 };
 
