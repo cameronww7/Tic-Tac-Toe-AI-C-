@@ -21,8 +21,8 @@ public:
 	virtual ~Player() {};
 
 	// Getters
-	const string & GetPlayerName()  {return mPlayerName;};
-	const char   & GetPlayerToken() {return mPlayerToken;};
+	string GetPlayerName()  {return mPlayerName;};
+	char   GetPlayerToken() {return mPlayerToken;};
 
 	// Setters
 	void SetPlayerName(const string & xName);

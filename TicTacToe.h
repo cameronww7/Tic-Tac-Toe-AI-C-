@@ -23,14 +23,18 @@ public:
 
 	void InitBoard();
 
-	typedef char (*ptr)[3];
+	typedef char (*multiDimBoard)[3];
 
 	// Getters
-	ptr  GetBoard() {return mBoard;};
-	char GetWhoWonToken() {return mWhoWon;};
-	char GetWhosTurnItIs() {return mToken;};
-	Player GetPlayerOne() {return mPlayer1;};
-	Player GetPlayerTwo() {return mPlayer2;};
+	multiDimBoard GetBoard() {return mBoard;};
+	const char    GetWhoWonToken()  {return mWhoWon;};
+	const char    GetWhosTurnItIs() {return mToken;};
+	const char    GetPlayerOne()    {return mPlayer1;};
+	const char    GetPlayerTwo()    {return mPlayer2;};
+
+	// Setters
+	void SetPlayerOneToken(char xToken) {mPlayer1 = xToken;};
+	void SetPlayerTwoToken(char xToken) {mPlayer2 = xToken;};
 
 	// Display
 	void DisplayInstruct();
@@ -45,12 +49,12 @@ private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
 	static const int NUM_COLS = 3; // the size of the rows in the arrayb
 
-	char   mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
-	char   mWhoWon;  // Winning Piece - IN
-	char   mToken;	 // current token -IN/OUT
+	char  mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
+	char  mWhoWon;  // Winning Piece - IN
+	char  mToken;	 // current token -IN/OUT
 
-	Player mPlayer1;  // Player 1 - IN
-	Player mPlayer2;  // Player 2 - IN
+	char mPlayer1;  // Player 1 - IN
+	char mPlayer2;  // Player 2 - IN
 
 };
 

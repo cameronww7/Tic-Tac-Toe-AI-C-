@@ -5,10 +5,12 @@
 
 #include "AI.h"
 
+
 AI::AI() {
 	mPlayerOne.SetPlayerNameAndToken("Jim", 'x');
 	mPlayerTwo.SetPlayerNameAndToken("Sam", 'o');
-
+	mTicTacToeGame.SetPlayerOneToken(mPlayerOne.GetPlayerToken());
+	mTicTacToeGame.SetPlayerTwoToken(mPlayerTwo.GetPlayerToken());
 }
 
 AI::~AI() {
@@ -63,5 +65,105 @@ int AI::HowManyPossibleMoves() {
 
 	return howManyPossibleMoves;
 }
+
+
+void AI::MakeAMove() {
+
+	// Check For Win Or Tie
+
+	//
+
+
+
+}
+
+int AI::CheckStateOfBoard() {
+	int stateOfBoard = 0;
+
+	if (mTicTacToeGame.CheckWin() == 'C') {
+		stateOfBoard = 0;
+	} else if (mTicTacToeGame.CheckWin() ==  mPlayerOne.GetPlayerToken()) {
+		stateOfBoard = 10;
+	} else if (mTicTacToeGame.CheckWin() ==  mPlayerOne.GetPlayerToken()) {
+		stateOfBoard = -10;
+	}
+
+	return stateOfBoard;
+}
+
+// This is the minimax function. It considers all
+// the possible ways the game can go and returns
+// the value of the board
+int AI::MiniMax(TicTacToe xTicTacToeGame,
+			int 	  xDepth,
+			bool 	  xIsMax,
+			const int NUM_ROWS,
+			const int NUM_COLS)
+{
+    int score = evaluate(board);
+
+    // If Maximizer has won the game return his/her
+    // evaluated score
+    if (score == 10)
+        return score;
+
+    // If Minimizer has won the game return his/her
+    // evaluated score
+    if (score == -10)
+        return score;
+
+    // If there are no more moves and no winner then
+    // it is a tie
+    if (isMovesLeft(board)==false)
+        return 0;
+
+    // If this maximizer's move
+    if (isMax) {
+        int best = -1000;
+
+        // Traverse all cells
+    	for (int rows = 0; rows < NUM_ROWS; rows++) {
+    		for (int cols = 0; cols < NUM_COLS; cols++) {
+                // Check if cell is empty
+                if (xTicTacToeGame.GetBoard()[rows][cols] == ' ') {
+                    // Make the move
+                	xTicTacToeGame.GetBoard()[rows][cols] = player;
+
+                    // Call minimax recursively and choose
+                    // the maximum value
+                    best = max( best, minimax(xTicTacToeGame, depth+1, !isMax, NUM_ROWS, NUM_COLS) );
+
+                    // Undo the move
+                    xTicTacToeGame.GetBoard()[rows][cols] = ' ';
+                }
+            }
+        }
+        return best;
+    } else {
+        int best = 1000;
+
+        // Traverse all cells
+    	for (int rows = 0; rows < NUM_ROWS; rows++) {
+    		for (int cols = 0; cols < NUM_COLS; cols++) {
+                // Check if cell is empty
+                if (xTicTacToeGame.GetBoard()[rows][cols] == ' ') {
+                    // Make the move
+                	xTicTacToeGame.GetBoard()[rows][cols] = opponent;
+
+                    // Call minimax recursively and choose
+                    // the minimum value
+                    best = min(best, minimax(xTicTacToeGame, depth+1, !isMax,  NUM_ROWS, NUM_COL));
+
+                    // Undo the move
+                    xTicTacToeGame.GetBoard()[rows][cols] = ' ';
+                }
+            }
+        }
+        return best;
+    }
+    return 0;
+}
+
+
 
 

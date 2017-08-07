@@ -25,13 +25,21 @@ public:
 	bool IsThereAMove();
 	int  HowManyPossibleMoves();
 
+	void MakeAMove();
+	int  CheckStateOfBoard();
+	int  MiniMax(TicTacToe xTicTacToeGame,
+				int 	  xDepth,
+				bool 	  xIsMax,
+				const int NUM_ROWS,
+				const int NUM_COLS);
+
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
 	static const int NUM_COLS = 3; // the size of the rows in the array
 
 	TicTacToe mTicTacToeGame;
-	Player mPlayerOne;
-	Player mPlayerTwo;
+	Player    mPlayerOne;
+	Player    mPlayerTwo;
 
 
 };
