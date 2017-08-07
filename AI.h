@@ -20,23 +20,14 @@ using namespace std;
 
 struct mMove
 {
-    int row, col;
+    int structRow;
+	int structCol;
 };
 
 class AI {
 public:
 	AI();
 	virtual ~AI();
-
-	bool IsThereAMove(TicTacToe xTicTacToeGame);
-	int  HowManyPossibleMoves(TicTacToe xTicTacToeGame);
-
-	void MakeAMove();
-	int  MiniMax(TicTacToe xTicTacToeGame,
-				int 	  xDepth,
-				bool 	  xIsMax,
-				const int NUM_ROWS,
-				const int NUM_COLS);
 
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
@@ -46,9 +37,16 @@ private:
 	Player    mPlayerOne;
 	Player    mPlayerTwo;
 
-	int CheckStateOfBoard(TicTacToe xTicTacToeGame);
+	void MakeAMove();
+	bool IsThereAMove(TicTacToe xTicTacToeGame);
+	int  HowManyPossibleMoves(TicTacToe xTicTacToeGame);
+	int  CheckStateOfBoard(TicTacToe xTicTacToeGame);
+	int  MiniMax(TicTacToe xTicTacToeGame,
+					int 	  xDepth,
+					bool 	  xIsMax,
+					const int NUM_ROWS,
+					const int NUM_COLS);
 	mMove FindBestMove(TicTacToe xTicTacToeGame);
-
 };
 
 #endif /* AI_H_ */
