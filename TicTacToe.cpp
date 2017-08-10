@@ -12,8 +12,10 @@ TicTacToe::TicTacToe() {
 		}
 	}
 
-	mWhoWon        = 'C';
-	mToken         = 'C';
+	mWhoWon     = 'C';
+	mToken      = 'C';
+	mPlayer1	= 'C';
+	mPlayer2	= 'C';
 }
 
 /**************************************************************************
@@ -143,14 +145,14 @@ void TicTacToe::InitBoard() {
  *************************************************************************/
 void TicTacToe::DisplayWinner () {
 	switch(mWhoWon) {
-		case 'X' : std::cout << mPlayer1.GetPlayerName()
+		case 'X' : std::cout << mPlayer1
 						<< " HAS WON, his wisdom, his logic, his "
 						   "unwavering determination has out done "
 						   "the noble O's and now he shall go down "
 						   "as history. May his name Last through "
 						   "out the ages";
 					break;
-		case 'O' : std::cout << mPlayer2.GetPlayerName()
+		case 'O' : std::cout << mPlayer2
 					 	<< " Has risen to Champion, his noble "
 						   "quest has given him the strength "
 						   "nay the will power to over come "
