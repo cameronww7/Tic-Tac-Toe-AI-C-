@@ -37,8 +37,8 @@ private:
 	static const int NUM_COLS = 3; // the size of the rows in the array
 
 	TicTacToe mTicTacToeGame;
-	Player    mPlayerOne;
-	Player    mPlayerTwo;
+	Player    mMe;
+	Player    mOpp;
 
 	void MakeAMove();
 	bool IsThereAMove(TicTacToe xTicTacToeGame);

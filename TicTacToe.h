@@ -19,6 +19,8 @@ using namespace std;
 class TicTacToe : public InputValidation {
 public:
 	TicTacToe();
+	TicTacToe(char xPlayerOneToken,
+			  char xPlayerTwoToken);
 	virtual ~TicTacToe() {};
 
 	void InitBoard();

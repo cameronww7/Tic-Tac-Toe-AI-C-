@@ -5,6 +5,20 @@
 
 #include "TicTacToe.h"
 
+TicTacToe::TicTacToe(char xPlayerOneToken,
+		  	  	     char xPlayerTwoToken) {
+	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
+		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
+			mBoard[rowCnt][colCnt]= ' ';
+		}
+	}
+
+	mWhoWon     = 'C';
+	mToken      = 'C';
+	mPlayer1	= xPlayerOneToken;
+	mPlayer2	= xPlayerTwoToken;
+}
+
 TicTacToe::TicTacToe() {
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
 		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {

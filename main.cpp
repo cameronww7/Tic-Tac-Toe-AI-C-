@@ -32,13 +32,26 @@ int main() {
 	Player playerOne("p1", 'x');
 	Player playerTwo("p2", 'o');
 
-	TicTacToe ticTacToeGame;
-	AI aiPlayerOne;
-	AI aiPlayerTwo;
+	TicTacToe ticTacToeGame();
+
+	AI aiPlayerOne(playerOne.GetPlayerToken(),
+				   playerTwo.GetPlayerToken(),
+				   ticTacToeGame);
+	AI aiPlayerTwo(playerTwo.GetPlayerToken(),
+				   playerOne.GetPlayerToken(),
+				   ticTacToeGame);
 
 	for (int index = 0; index < 1000; index++) {
 		while(ticTacToeGame.IsThereAMove()) {
 
+		}
+
+		if (ticTacToeGame.CheckWin() == 'x') {
+			playerOneWinCount++;
+		} else if (ticTacToeGame.CheckWin() == 'o') {
+			playerTwoWinCount++;
+		} else {
+			tieCount++;
 		}
 	}
 
