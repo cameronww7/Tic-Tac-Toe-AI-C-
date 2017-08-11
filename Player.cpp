@@ -10,6 +10,12 @@ Player::Player() {
 	mPlayerToken = 'x';
 }
 
+Player::Player(string xPlayerName,
+			   char   xPlayerToken) {
+	mPlayerName  = xPlayerName;
+	mPlayerToken = xPlayerToken;
+}
+
 /**************************************************************************
  *
  *		 FUNCTION PromptForPlayerInfo

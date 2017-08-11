@@ -29,16 +29,17 @@ int main() {
 	int playerTwoWinCount = 0;
 	int tieCount 		  = 0;
 
+	Player playerOne("p1", 'x');
+	Player playerTwo("p2", 'o');
+
 	TicTacToe ticTacToeGame;
 	AI aiPlayerOne;
 	AI aiPlayerTwo;
-
 
 	for (int index = 0; index < 1000; index++) {
 		while(ticTacToeGame.IsThereAMove()) {
 
 		}
-
 	}
 
 	return 0;

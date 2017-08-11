@@ -18,6 +18,8 @@ using namespace std;
 class Player : public InputValidation {
 public:
 	Player();
+	Player(string xPlayerName,
+		   char   xPlayerToken);
 	virtual ~Player() {};
 
 	// Getters
