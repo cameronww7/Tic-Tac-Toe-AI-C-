@@ -25,6 +25,22 @@ int main() {
 
 	std::cout << "Tic Tac Toe C++";
 
+	int playerOneWinCount = 0;
+	int playerTwoWinCount = 0;
+	int tieCount 		  = 0;
+
+	TicTacToe ticTacToeGame;
+	AI aiPlayerOne;
+	AI aiPlayerTwo;
+
+
+	for (int index = 0; index < 1000; index++) {
+		while(ticTacToeGame.IsThereAMove()) {
+
+		}
+
+	}
+
 	return 0;
 }
 

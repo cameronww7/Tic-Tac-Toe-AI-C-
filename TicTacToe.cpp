@@ -168,6 +168,31 @@ void TicTacToe::DisplayWinner () {
 	}
 }
 
+/************************************************************************
+ *  bool IsThereAMove
+ * _______________________________________________________________________
+ * This function will find in the board if there is a possible move and
+ * return a true or false depending if it finds one.
+ * _______________________________________________________________________
+ * PRE-CONDITIONS
+ *		mTicTacToeGame : must be made
+ * POST-CONDITIONS
+ * 		isThereAMove - returns either True or False
+ ************************************************************************/
+bool TicTacToe::IsThereAMove() {
+	bool isThereAMove = false;
+
+	for (int rows = 0; rows < NUM_ROWS && isThereAMove != true; rows++) {
+		for (int cols = 0; cols < NUM_COLS && isThereAMove != true; cols++) {
+			if (mBoard[rows][cols] == ' ') {
+				isThereAMove = true;
+			}
+		}
+	}
+
+	return isThereAMove;
+}
+
 /**************************************************************************
  *
  *		 FUNCTION CheckWin

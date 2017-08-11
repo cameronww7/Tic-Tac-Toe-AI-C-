@@ -42,6 +42,7 @@ public:
 	void DisplayWinner();
 
 	// Other Stuff
+	bool IsThereAMove();
 	char CheckWin();
 	char SwitchToken ();
 

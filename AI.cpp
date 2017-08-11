@@ -16,6 +16,14 @@ AI::AI() {
 	mTicTacToeGame.SetPlayerTwoToken(mPlayerTwo.GetPlayerToken());
 }
 
+AI::AI(Player xPlayerOne,
+	   Player xPlayerTwo,
+	   TicTacToe xTicTacToeGame) {
+	mPlayerOne 	   = xPlayerOne;
+	mPlayerTwo 	   = xPlayerTwo;
+	mTicTacToeGame = xTicTacToeGame;
+}
+
 AI::~AI() {
 
 }
