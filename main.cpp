@@ -4,6 +4,9 @@
  *************************************************************************/
 
 #include "header.h"
+#include "AI.h"
+#include "Player.h"
+#include "TicTacToe.h"
 
 /**************************************************************************
  *
@@ -32,7 +35,7 @@ int main() {
 	Player playerOne("p1", 'x');
 	Player playerTwo("p2", 'o');
 
-	TicTacToe ticTacToeGame();
+	TicTacToe ticTacToeGame;
 
 	AI aiPlayerOne(playerOne,
 				   playerTwo,

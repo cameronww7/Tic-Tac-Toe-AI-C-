@@ -6,10 +6,6 @@
 #ifndef HEADER_H_
 #define HEADER_H_
 
-#include "AI.h"
-#include "Player.h"
-#include "TicTacToe.h"
-
 // Preprocessor Directives
 #include <iostream>
 #include <iomanip>
