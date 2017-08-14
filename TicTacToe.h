@@ -6,9 +6,11 @@
 #ifndef TICTACTOE_H_
 #define TICTACTOE_H_
 
+// Class Directives
 #include "Player.h"
 #include "InputValidation.h"
 
+// Preprocessor Directives
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -16,12 +18,28 @@
 #include <limits>
 using namespace std;
 
+/**************************************************************************
+ *
+ *		Class :: TicTacToe
+ * _____________________________________________________________________
+ *
+ *		Objective :
+ *		The goal of this class is to create a game of Tic Tac Toe. On
+ *		top on just creating a game it will manage the game's process.
+ *		Meaning it should make sure who's move it is and if someone has
+ *		win's the game. Because its part of a greater process it must be
+ *		able to return its contents that will be used for unknown to
+ *		this classes intentions.
+ * _____________________________________________________________________
+ *
+ *************************************************************************/
+
 class TicTacToe : public InputValidation {
 public:
-	TicTacToe();
+	TicTacToe(); 							// Base Constructor
 	TicTacToe(char xPlayerOneToken,
-			  char xPlayerTwoToken);
-	TicTacToe(TicTacToe & xTicTacToeGame);
+			  char xPlayerTwoToken); 		// Input Constructor
+	TicTacToe(TicTacToe & xTicTacToeGame); 	// Copy Constructor
 	virtual ~TicTacToe() {};
 
 	void InitBoard();
@@ -51,7 +69,7 @@ public:
 
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
-	static const int NUM_COLS = 3; // the size of the rows in the arrayb
+	static const int NUM_COLS = 3; // the size of the rows in the array
 
 	char  mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
 	char  mWhoWon;  // Winning Piece - IN

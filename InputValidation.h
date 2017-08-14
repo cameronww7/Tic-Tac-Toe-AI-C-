@@ -6,6 +6,7 @@
 #ifndef INPUTVALIDATION_H_
 #define INPUTVALIDATION_H_
 
+// Preprocessor Directives
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -13,6 +14,19 @@
 #include <limits>
 #include <algorithm>
 using namespace std;
+
+/**************************************************************************
+ *
+ *		Class :: InputValidation
+ * _____________________________________________________________________
+ *
+ *		Objective :
+ *		The goal of this class is to check any kind of user input and
+ *		either make sure the input is correct and if not provide a way
+ *		to get correct user input.
+ * _____________________________________________________________________
+ *
+ *************************************************************************/
 
 class InputValidation {
 public:
