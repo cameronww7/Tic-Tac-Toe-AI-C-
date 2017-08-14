@@ -34,11 +34,11 @@ int main() {
 
 	TicTacToe ticTacToeGame();
 
-	AI aiPlayerOne(playerOne.GetPlayerToken(),
-				   playerTwo.GetPlayerToken(),
+	AI aiPlayerOne(playerOne,
+				   playerTwo,
 				   ticTacToeGame);
-	AI aiPlayerTwo(playerTwo.GetPlayerToken(),
-				   playerOne.GetPlayerToken(),
+	AI aiPlayerTwo(playerTwo,
+				   playerOne,
 				   ticTacToeGame);
 
 	for (int index = 0; index < 1000; index++) {

@@ -27,9 +27,9 @@ struct mMove
 class AI {
 public:
 	AI();
-	AI(Player xPlayerOne,
-	   Player xPlayerTwo,
-	   TicTacToe xTicTacToeGame);
+	AI(Player & xPlayerOne,
+	   Player & xPlayerTwo,
+	   TicTacToe & xTicTacToeGame);
 	virtual ~AI();
 
 private:

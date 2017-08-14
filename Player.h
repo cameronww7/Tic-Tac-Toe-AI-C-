@@ -20,6 +20,7 @@ public:
 	Player();
 	Player(string xPlayerName,
 		   char   xPlayerToken);
+	Player(Player & xPlayer);
 	virtual ~Player() {};
 
 	// Getters

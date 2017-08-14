@@ -16,9 +16,9 @@ AI::AI() {
 	mTicTacToeGame.SetPlayerTwoToken(mOpp.GetPlayerToken());
 }
 
-AI::AI(Player xPlayerOne,
-	   Player xPlayerTwo,
-	   TicTacToe xTicTacToeGame) {
+AI::AI(Player & xPlayerOne,
+	   Player & xPlayerTwo,
+	   TicTacToe & xTicTacToeGame) {
 	mMe 	       = xPlayerOne;
 	mOpp 	       = xPlayerTwo;
 	mTicTacToeGame = xTicTacToeGame;

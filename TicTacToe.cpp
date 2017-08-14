@@ -32,6 +32,14 @@ TicTacToe::TicTacToe() {
 	mPlayer2	= 'C';
 }
 
+TicTacToe::TicTacToe(TicTacToe & xTicTacToeGame) {
+	mBoard[NUM_ROWS][NUM_COLS] = xTicTacToeGame.GetBoard()[NUM_ROWS][NUM_COLS];
+	mWhoWon  = xTicTacToeGame.GetWhosTurnItIs();
+	mToken   = xTicTacToeGame.GetWhoWonToken();
+	mPlayer1 = xTicTacToeGame.GetPlayerOne();
+	mPlayer2 = xTicTacToeGame.GetPlayerTwo();
+}
+
 /**************************************************************************
  *
  *		 FUNCTION DisplayInstruct

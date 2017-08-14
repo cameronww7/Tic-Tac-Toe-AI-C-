@@ -16,6 +16,11 @@ Player::Player(string xPlayerName,
 	mPlayerToken = xPlayerToken;
 }
 
+Player::Player(Player & xPlayer) {
+	mPlayerName = xPlayer.GetPlayerName();
+	mPlayerToken = xPlayer.GetPlayerToken();
+}
+
 /**************************************************************************
  *
  *		 FUNCTION PromptForPlayerInfo

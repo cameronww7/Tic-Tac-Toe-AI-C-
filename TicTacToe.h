@@ -21,6 +21,7 @@ public:
 	TicTacToe();
 	TicTacToe(char xPlayerOneToken,
 			  char xPlayerTwoToken);
+	TicTacToe(TicTacToe & xTicTacToeGame);
 	virtual ~TicTacToe() {};
 
 	void InitBoard();
