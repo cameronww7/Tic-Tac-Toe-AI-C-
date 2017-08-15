@@ -12,10 +12,11 @@ TicTacToe::TicTacToe() {
 		}
 	}
 
-	mWhoWon     = 'C';
-	mToken      = 'C';
-	mPlayer1	= 'C';
-	mPlayer2	= 'C';
+	mWhoWon        = 'C';
+	mToken         = 'C';
+	mStartingToken = 'C';
+	mPlayer1	   = 'C';
+	mPlayer2	   = 'C';
 }
 
 TicTacToe::TicTacToe(char xPlayerOneToken,
@@ -26,18 +27,20 @@ TicTacToe::TicTacToe(char xPlayerOneToken,
 		}
 	}
 
-	mWhoWon     = 'C';
-	mToken      = 'C';
-	mPlayer1	= xPlayerOneToken;
-	mPlayer2	= xPlayerTwoToken;
+	mWhoWon        = 'C';
+	mToken         = 'C';
+	mStartingToken = 'C';
+	mPlayer1	   = xPlayerOneToken;
+	mPlayer2	   = xPlayerTwoToken;
 }
 
 TicTacToe::TicTacToe(TicTacToe & xTicTacToeGame) {
 	mBoard[NUM_ROWS][NUM_COLS] = xTicTacToeGame.GetBoard()[NUM_ROWS][NUM_COLS];
-	mWhoWon  = xTicTacToeGame.GetWhosTurnItIs();
-	mToken   = xTicTacToeGame.GetWhoWonToken();
-	mPlayer1 = xTicTacToeGame.GetPlayerOne();
-	mPlayer2 = xTicTacToeGame.GetPlayerTwo();
+	mWhoWon  	   = xTicTacToeGame.GetWhosTurnItIs();
+	mToken   	   = xTicTacToeGame.GetWhoWonToken();
+	mStartingToken = xTicTacToeGame.GetStartingToken();
+	mPlayer1	   = xTicTacToeGame.GetPlayerOne();
+	mPlayer2 	   = xTicTacToeGame.GetPlayerTwo();
 }
 
 /**************************************************************************
@@ -83,7 +86,7 @@ void TicTacToe::DisplayInstruct() {
  *		any plays it will display them through the array
  * _____________________________________________________________________
  * PRE-CONDITIONS:
- * 		Board[][] : the multi array of the board
+ * 		mBoard[][] : the multi array of the board
  *
  * POST-CONDITIONS:
  *		RETURNS: the current plays on the board
@@ -131,19 +134,19 @@ void TicTacToe::DisplayBoard() {
 
 /**************************************************************************
  *
- *		 FUNCTION InitBoard
+ *		 FUNCTION ClearBoard
  * _____________________________________________________________________
  *		This function will initialize each of the 9 spaces on the board
  *		as a white space for future X's and O's
  * _____________________________________________________________________
  * PRE-CONDITIONS:
- * 		Board[][] : the multi array of the board
+ * 		mBoard[][] : the multi array of the board
  *
  * POST-CONDITIONS:
  * 		There is none, it just makes the spaces int he array white spaces
  *
  *************************************************************************/
-void TicTacToe::InitBoard() {
+void TicTacToe::ClearBoard() {
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
 		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
 			mBoard[rowCnt][colCnt]= ' ';
@@ -159,9 +162,9 @@ void TicTacToe::InitBoard() {
  *		the user who won their name and say they have won the game.
  * _____________________________________________________________________
  * PRE-CONDITIONS:
- *		whoWon : must be either an X or O
- *		player1   : player 1's name
- *		player2   : player 2's name
+ *		mWhoWon : must be either an X or O
+ *		mPlayer1   : player 1's name
+ *		mPlayer2   : player 2's name
  * POST-CONDITIONS:
  *		outputs the current winner with their name!
  *************************************************************************/
@@ -197,7 +200,7 @@ void TicTacToe::DisplayWinner () {
  * return a true or false depending if it finds one.
  * _______________________________________________________________________
  * PRE-CONDITIONS
- *		mTicTacToeGame : must be made
+ *		mBoard : must be made
  * POST-CONDITIONS
  * 		isThereAMove - returns either True or False
  ************************************************************************/
@@ -224,10 +227,10 @@ bool TicTacToe::IsThereAMove() {
  *		or side to side, or diagonal
  * _____________________________________________________________________
  * PRE-CONDITIONS:
- *		Board[][] : the multi array of the board
+ *		mBoard[][] : the multi array of the board
  *
  * POST-CONDITIONS:
- * 		whoWin : sends back who won if their is a winner or just a tie
+ * 		winnerWinner : sends back who won if their is a winner or just a tie
  *
  *************************************************************************/
 char TicTacToe::CheckWin() {
@@ -282,15 +285,31 @@ char TicTacToe::CheckWin() {
  *		player. If an X comes in an O will go out
  * _____________________________________________________________________
  * PRE-CONDITIONS:
- *		token : the current player
+ *		mToken : the current player
  * POST-CONDITIONS:
- *		token : switches to the other player
+ *		mToken : switches to the other player
  *************************************************************************/
 char TicTacToe::SwitchToken () {
-	if(mToken == 'X') {
-		mToken = 'O';
+	if(mToken == mPlayer1) {
+		mToken = mPlayer2;
 	} else {
-		mToken ='X';
+		mToken = mPlayer1;
 	}
 	return mToken;
+}
+
+/**************************************************************************
+ *
+ *		 FUNCTION StartingToken
+ * _____________________________________________________________________
+ *		Takes in a starting to token, this is used to define who will
+ *		go first but makes it easy to switch.
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ *		xToken : Passed in token
+ * POST-CONDITIONS:
+ *		mStartingToken : Starting token
+ *************************************************************************/
+void TicTacToe::StartingToken(char xToken) {
+	mStartingToken = xToken;
 }

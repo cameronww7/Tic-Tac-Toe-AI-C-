@@ -23,8 +23,9 @@
  *
  *************************************************************************/
 
-int main() {
+const int NUM_OF_GAMES = 1000;
 
+int main() {
 	std::cout << "Tic Tac Toe C++";
 
 	int playerOneWinCount = 0;
@@ -43,18 +44,25 @@ int main() {
 				   playerOne,
 				   ticTacToeGame);
 
-	for (int index = 0; index < 1000; index++) {
+	for (int index = 0; index < NUM_OF_GAMES; index++) {
+		if(NUM_OF_GAMES < (NUM_OF_GAMES / 2)) {
+			ticTacToeGame.StartingToken(playerOne.GetPlayerToken());
+		} else {
+			ticTacToeGame.StartingToken(playerTwo.GetPlayerToken());
+		}
+
 		while(ticTacToeGame.IsThereAMove()) {
 
 		}
 
-		if (ticTacToeGame.CheckWin() == 'x') {
+		if (ticTacToeGame.CheckWin() == playerOne.GetPlayerToken()) {
 			playerOneWinCount++;
-		} else if (ticTacToeGame.CheckWin() == 'o') {
+		} else if (ticTacToeGame.CheckWin() == playerTwo.GetPlayerToken()) {
 			playerTwoWinCount++;
 		} else {
 			tieCount++;
 		}
+		ticTacToeGame.ClearBoard();
 	}
 
 	return 0;

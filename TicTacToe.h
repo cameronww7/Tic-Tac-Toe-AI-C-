@@ -42,7 +42,7 @@ public:
 	TicTacToe(TicTacToe & xTicTacToeGame); 	// Copy Constructor
 	virtual ~TicTacToe() {};
 
-	void InitBoard();
+	void ClearBoard();
 
 	typedef char (*multiDimBoard)[3];
 
@@ -52,6 +52,7 @@ public:
 	const char    GetWhosTurnItIs() {return mToken;};
 	const char    GetPlayerOne()    {return mPlayer1;};
 	const char    GetPlayerTwo()    {return mPlayer2;};
+	const char	  GetStartingToken(){return mStartingToken;};
 
 	// Setters
 	void SetPlayerOneToken(char xToken) {mPlayer1 = xToken;};
@@ -65,19 +66,20 @@ public:
 	// Other Stuff
 	bool IsThereAMove();
 	char CheckWin();
-	char SwitchToken ();
+	char SwitchToken();
+	void StartingToken(char xToken);
 
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
 	static const int NUM_COLS = 3; // the size of the rows in the array
 
-	char  mBoard[NUM_ROWS][NUM_COLS];	// tic tac toe Board - IN
-	char  mWhoWon;  // Winning Piece - IN
-	char  mToken;	 // current token -IN/OUT
+	char mBoard[NUM_ROWS][NUM_COLS]; // tic tac toe Board - IN
+	char mWhoWon;  		 // Winning Piece - IN
+	char mToken;  		 // Current token - IN/OUT
+	char mStartingToken; // Passed in starting Token
 
-	char mPlayer1;  // Player 1 - IN
-	char mPlayer2;  // Player 2 - IN
-
+	char mPlayer1; // Player 1 - IN
+	char mPlayer2; // Player 2 - IN
 };
 
 #endif /* TICTACTOE_H_ */
