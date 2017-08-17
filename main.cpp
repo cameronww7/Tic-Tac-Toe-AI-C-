@@ -65,6 +65,13 @@ int main() {
 		ticTacToeGame.ClearBoard();
 	}
 
+	std::cout << "There were " << NUM_OF_GAMES << "played." << std::endl;
+	std::cout << " Wins " << std::endl;
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Player 1 : " << playerOneWinCount << std::endl;
+	std::cout << "Player 2 : " << playerTwoWinCount << std::endl;
+	std::cout << "  Ties   : " << tieCount          << std::endl;
+
 	return 0;
 }
 
