@@ -26,12 +26,14 @@
 const int NUM_OF_GAMES = 1000;
 
 int main() {
-	std::cout << "Tic Tac Toe C++";
+	std::cout << "> Tic Tac Toe C++" << std::endl;
 
+	std::cout << "> Creating Variables" << std::endl;
 	int playerOneWinCount = 0;
 	int playerTwoWinCount = 0;
 	int tieCount 		  = 0;
 
+	std::cout << "> Creating Objects" << std::endl;
 	Player playerOne("p1", 'x');
 	Player playerTwo("p2", 'o');
 
@@ -44,10 +46,17 @@ int main() {
 				   playerOne,
 				   ticTacToeGame);
 
+	std::cout << std::endl << ">      <<< Starting Game >>>" << std::endl;
+	std::cout << "> <<< " << NUM_OF_GAMES << " Games to be Played >>>" << std::endl << std::endl;
+
 	for (int index = 0; index < NUM_OF_GAMES; index++) {
+		std::cout << "> Starting Game Number " << index << std::endl;
+
 		if(NUM_OF_GAMES < (NUM_OF_GAMES / 2)) {
+			std::cout << "> " << playerOne.GetPlayerName() << " Has Started" << std::endl;
 			ticTacToeGame.StartingToken(playerOne.GetPlayerToken());
 		} else {
+			std::cout << "> " << playerTwo.GetPlayerName() << " Has Started" << std::endl;
 			ticTacToeGame.StartingToken(playerTwo.GetPlayerToken());
 		}
 
@@ -56,21 +65,28 @@ int main() {
 		}
 
 		if (ticTacToeGame.CheckWin() == playerOne.GetPlayerToken()) {
+			std::cout << "> " << playerOne.GetPlayerName() << " Has Won" << std::endl;
 			playerOneWinCount++;
 		} else if (ticTacToeGame.CheckWin() == playerTwo.GetPlayerToken()) {
+			std::cout << "> " << playerTwo.GetPlayerName() << " Has Won" << std::endl;
 			playerTwoWinCount++;
 		} else {
+			std::cout << "> " << "A Tie Has Happen " << std::endl;
 			tieCount++;
 		}
+		std::cout << "> Clearing Board";
 		ticTacToeGame.ClearBoard();
 	}
 
-	std::cout << "There were " << NUM_OF_GAMES << "played." << std::endl;
-	std::cout << " Wins " << std::endl;
-	std::cout << "--------------------------------" << std::endl;
-	std::cout << "Player 1 : " << playerOneWinCount << std::endl;
-	std::cout << "Player 2 : " << playerTwoWinCount << std::endl;
-	std::cout << "  Ties   : " << tieCount          << std::endl;
+	std::cout << "> There were " << NUM_OF_GAMES << "played." << std::endl;
+	std::cout << "> --------------------------------" << std::endl;
+	std::cout << ">  Wins " << std::endl;
+	std::cout << "> --------------------------------" << std::endl;
+	std::cout << "> Player 1 : " << playerOneWinCount << std::endl;
+	std::cout << "> Player 2 : " << playerTwoWinCount << std::endl;
+	std::cout << ">  Ties   : "  << tieCount          << std::endl;
+	std::cout << "> --------------------------------" << std::endl;
+	std::cout << "> End of Game";
 
 	return 0;
 }
