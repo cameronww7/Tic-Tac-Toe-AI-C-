@@ -36,7 +36,7 @@ using namespace std;
 
 class TicTacToe : public InputValidation {
 public:
-	TicTacToe(); 							// Base Constructor
+	TicTacToe(void); 							// Base Constructor
 	TicTacToe(char xPlayerOneToken,
 			  char xPlayerTwoToken); 		// Input Constructor
 	TicTacToe(TicTacToe & xTicTacToeGame); 	// Copy Constructor
@@ -47,26 +47,27 @@ public:
 	typedef char (*multiDimBoard)[3];
 
 	// Getters
-	multiDimBoard GetBoard() {return mBoard;};
-	const char    GetWhoWonToken()  {return mWhoWon;};
-	const char    GetWhosTurnItIs() {return mToken;};
-	const char    GetPlayerOne()    {return mPlayer1;};
-	const char    GetPlayerTwo()    {return mPlayer2;};
-	const char	  GetStartingToken(){return mStartingToken;};
+	multiDimBoard GetBoard(void) {return mBoard;};
+	const char    GetWhoWonToken(void)  {return mWhoWon;};
+	const char    GetWhosTurnItIs(void) {return mToken;};
+	const char    GetPlayerOne(void)    {return mPlayer1;};
+	const char    GetPlayerTwo(void)    {return mPlayer2;};
+	const char	  GetStartingToken(void){return mStartingToken;};
 
 	// Setters
 	void SetPlayerOneToken(char xToken) {mPlayer1 = xToken;};
 	void SetPlayerTwoToken(char xToken) {mPlayer2 = xToken;};
 
 	// Display
-	void DisplayInstruct();
-	void DisplayBoard();
-	void DisplayWinner();
+	void DisplayInstruct(void);
+	void DisplayBoard(void);
+	void DisplayWinner(void);
 
 	// Other Stuff
-	bool IsThereAMove();
-	char CheckWin();
-	char SwitchToken();
+	bool IsThereAMove(void);
+	char CheckWin(void);
+	bool CheckForTie(void);
+	char SwitchToken(void);
 	void StartingToken(char xToken);
 
 private:

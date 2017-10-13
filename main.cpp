@@ -50,7 +50,7 @@ int main() {
 	std::cout << "> <<< " << NUM_OF_GAMES << " Games to be Played >>>" << std::endl << std::endl;
 
 	for (int index = 0; index < NUM_OF_GAMES; index++) {
-		std::cout << "> Starting Game Number " << index << std::endl;
+		std::cout << "> Starting Game Number " << index+1 << std::endl;
 
 		if(NUM_OF_GAMES < (NUM_OF_GAMES / 2)) {
 			std::cout << "> " << playerOne.GetPlayerName() << " Has Started" << std::endl;
@@ -60,9 +60,9 @@ int main() {
 			ticTacToeGame.StartingToken(playerTwo.GetPlayerToken());
 		}
 
-		while(ticTacToeGame.IsThereAMove()) {
-
-		}
+//		while(ticTacToeGame.IsThereAMove()) {
+//
+//		}
 
 		if (ticTacToeGame.CheckWin() == playerOne.GetPlayerToken()) {
 			std::cout << "> " << playerOne.GetPlayerName() << " Has Won" << std::endl;
@@ -70,15 +70,18 @@ int main() {
 		} else if (ticTacToeGame.CheckWin() == playerTwo.GetPlayerToken()) {
 			std::cout << "> " << playerTwo.GetPlayerName() << " Has Won" << std::endl;
 			playerTwoWinCount++;
-		} else {
+		} else if (ticTacToeGame.CheckForTie()){
 			std::cout << "> " << "A Tie Has Happen " << std::endl;
 			tieCount++;
+		} else {
+			std::cout << "> " << "No one has Won or Tie'ed, So Error" << std::endl;
 		}
-		std::cout << "> Clearing Board";
+		std::cout << "> Clearing Board\n\n";
 		ticTacToeGame.ClearBoard();
 	}
 
-	std::cout << "> There were " << NUM_OF_GAMES << "played." << std::endl;
+	std::cout << "\n\n";
+	std::cout << "> There were " << NUM_OF_GAMES << " played." << std::endl;
 	std::cout << "> --------------------------------" << std::endl;
 	std::cout << ">  Wins " << std::endl;
 	std::cout << "> --------------------------------" << std::endl;

@@ -5,7 +5,7 @@
 
 #include "TicTacToe.h"
 
-TicTacToe::TicTacToe() {
+TicTacToe::TicTacToe(void) {
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
 		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
 			mBoard[rowCnt][colCnt]= ' ';
@@ -52,6 +52,7 @@ TicTacToe::TicTacToe(TicTacToe & xTicTacToeGame) {
  * _____________________________________________________________________
  * PRE-CONDITIONS:
  *		none
+ *
  * POST-CONDITIONS:
  *		none
  *************************************************************************/
@@ -91,7 +92,7 @@ void TicTacToe::DisplayInstruct() {
  * POST-CONDITIONS:
  *		RETURNS: the current plays on the board
  *************************************************************************/
-void TicTacToe::DisplayBoard() {
+void TicTacToe::DisplayBoard(void) {
 	//clears the screen before the new board goes out
 	system("cls");
 
@@ -146,7 +147,7 @@ void TicTacToe::DisplayBoard() {
  * 		There is none, it just makes the spaces int he array white spaces
  *
  *************************************************************************/
-void TicTacToe::ClearBoard() {
+void TicTacToe::ClearBoard(void) {
 	for (int rowCnt = 0; rowCnt < NUM_ROWS; rowCnt++) {
 		for (int colCnt = 0; colCnt < NUM_COLS; colCnt++) {
 			mBoard[rowCnt][colCnt]= ' ';
@@ -165,10 +166,11 @@ void TicTacToe::ClearBoard() {
  *		mWhoWon : must be either an X or O
  *		mPlayer1   : player 1's name
  *		mPlayer2   : player 2's name
+ *
  * POST-CONDITIONS:
  *		outputs the current winner with their name!
  *************************************************************************/
-void TicTacToe::DisplayWinner () {
+void TicTacToe::DisplayWinner(void) {
 	switch(mWhoWon) {
 		case 'X' : std::cout << mPlayer1
 						<< " HAS WON, his wisdom, his logic, his "
@@ -201,10 +203,11 @@ void TicTacToe::DisplayWinner () {
  * _______________________________________________________________________
  * PRE-CONDITIONS
  *		mBoard : must be made
+ *
  * POST-CONDITIONS
  * 		isThereAMove - returns either True or False
  ************************************************************************/
-bool TicTacToe::IsThereAMove() {
+bool TicTacToe::IsThereAMove(void) {
 	bool isThereAMove = false;
 
 	for (int rows = 0; rows < NUM_ROWS && isThereAMove != true; rows++) {
@@ -231,9 +234,8 @@ bool TicTacToe::IsThereAMove() {
  *
  * POST-CONDITIONS:
  * 		winnerWinner : sends back who won if their is a winner or just a tie
- *
  *************************************************************************/
-char TicTacToe::CheckWin() {
+char TicTacToe::CheckWin(void) {
 	char winnerWinner = 'C';
 	int  index = 0;
 
@@ -279,6 +281,29 @@ char TicTacToe::CheckWin() {
 
 /**************************************************************************
  *
+ *		 FUNCTION CheckForTie
+ * _____________________________________________________________________
+ *		Checks to see if there is a win and then checks for a if there
+ *		are any moves and if there is no win or moves its a tie.
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ *		mBoard[][] : the multi array of the board
+ *
+ * POST-CONDITIONS:
+ * 		winnerWinner : sends back who won if their is a winner or just a tie
+ *************************************************************************/
+bool TicTacToe::CheckForTie(void) {
+	bool thereIsATie = false;
+
+	if(CheckWin() == 'C' && !IsThereAMove()) {
+		thereIsATie = true;
+	}
+
+	return thereIsATie;
+}
+
+/**************************************************************************
+ *
  *		 FUNCTION SwitchToken
  * _____________________________________________________________________
  *		Takes in the current token and then switches it to the other
@@ -286,10 +311,11 @@ char TicTacToe::CheckWin() {
  * _____________________________________________________________________
  * PRE-CONDITIONS:
  *		mToken : the current player
+ *
  * POST-CONDITIONS:
  *		mToken : switches to the other player
  *************************************************************************/
-char TicTacToe::SwitchToken () {
+char TicTacToe::SwitchToken (void) {
 	if(mToken == mPlayer1) {
 		mToken = mPlayer2;
 	} else {
@@ -307,6 +333,7 @@ char TicTacToe::SwitchToken () {
  * _____________________________________________________________________
  * PRE-CONDITIONS:
  *		xToken : Passed in token
+ *
  * POST-CONDITIONS:
  *		mStartingToken : Starting token
  *************************************************************************/
