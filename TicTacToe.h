@@ -66,6 +66,7 @@ public:
 	// Other Stuff
 	bool IsThereAMove(void);
 	char CheckWin(void);
+	bool CheckForAWin(void);
 	bool CheckForTie(void);
 	char SwitchToken(void);
 	void StartingToken(char xToken);

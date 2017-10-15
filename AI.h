@@ -47,6 +47,8 @@ public:
 	   TicTacToe & xTicTacToeGame); // Input Constructor
 	virtual ~AI();
 
+	void MakeAMove();
+
 private:
 	static const int NUM_ROWS = 3; // the size of the columns in the array
 	static const int NUM_COLS = 3; // the size of the rows in the array
@@ -55,7 +57,7 @@ private:
 	Player    mMe;
 	Player    mOpp;
 
-	void MakeAMove();
+	bool DidSomeoneWin();
 	bool IsThereAMove(TicTacToe xTicTacToeGame);
 	int  HowManyPossibleMoves(TicTacToe xTicTacToeGame);
 	int  CheckStateOfBoard(TicTacToe xTicTacToeGame);

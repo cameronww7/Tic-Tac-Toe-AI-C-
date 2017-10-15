@@ -46,6 +46,16 @@ void AI::MakeAMove() {
 
 }
 
+bool AI::DidSomeoneWin() {
+	bool didSomeoneWin = false;
+
+	if(mTicTacToeGame.CheckWin() == "C" && mTicTacToeGame.CheckForTie()){
+		didSomeoneWin = true;
+	}
+
+	return didSomeoneWin;
+}
+
 /************************************************************************
  *  bool IsThereAMove
  * _______________________________________________________________________

@@ -281,6 +281,29 @@ char TicTacToe::CheckWin(void) {
 
 /**************************************************************************
  *
+ *		 FUNCTION CheckForAWin
+ * _____________________________________________________________________
+ *		Checks to see if there is a win and then checks for a if there
+ *		are any moves and if there is no win or moves its a tie.
+ * _____________________________________________________________________
+ * PRE-CONDITIONS:
+ *		mBoard[][] : the multi array of the board
+ *
+ * POST-CONDITIONS:
+ * 		winnerWinner : sends back who won if their is a winner or just a tie
+ *************************************************************************/
+bool TicTacToe::CheckForAWin(void) {
+	bool thereIsATie = false;
+
+	if(CheckWin() == 'C') {
+		thereIsATie = true;
+	}
+
+	return thereIsATie;
+}
+
+/**************************************************************************
+ *
  *		 FUNCTION CheckForTie
  * _____________________________________________________________________
  *		Checks to see if there is a win and then checks for a if there

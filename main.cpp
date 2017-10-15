@@ -60,9 +60,12 @@ int main() {
 			ticTacToeGame.StartingToken(playerTwo.GetPlayerToken());
 		}
 
-//		while(ticTacToeGame.IsThereAMove()) {
-//
-//		}
+		static int numOfMovesMade = 0;
+
+		while(ticTacToeGame.CheckForAWin()) {
+			aiPlayerOne.MakeAMove();
+
+		}
 
 		if (ticTacToeGame.CheckWin() == playerOne.GetPlayerToken()) {
 			std::cout << "> " << playerOne.GetPlayerName() << " Has Won" << std::endl;
@@ -87,7 +90,7 @@ int main() {
 	std::cout << "> --------------------------------" << std::endl;
 	std::cout << "> Player 1 : " << playerOneWinCount << std::endl;
 	std::cout << "> Player 2 : " << playerTwoWinCount << std::endl;
-	std::cout << ">  Ties   : "  << tieCount          << std::endl;
+	std::cout << ">   Ties   : "  << tieCount         << std::endl;
 	std::cout << "> --------------------------------" << std::endl;
 	std::cout << "> End of Game";
 
