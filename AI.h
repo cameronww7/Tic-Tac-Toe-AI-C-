@@ -20,8 +20,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct mMove
-{
+struct mMove {
     int structRow; // Row slot in Multi-Dim Array
 	int structCol; // Col slot in Multi-Dim Array
 };
